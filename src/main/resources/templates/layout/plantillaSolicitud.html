@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Solicitud</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="observarSolicitud">
+            <form th:object="${solicitud}">
+                <input type="hidden" name="idSolicitud" th:field="*{idSolicitud}"/>
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Informaci&oacute;n solicitud</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="tiposolicitud">[[#{solicitud.tipo-solicitud}]]: </label>
+                                            <label for="valorTipoSolicitud">[[${solicitud.tipoSolicitud.nombre}]]</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="codigo">[[#{solicitud.codigo}]]: </label>
+                                            <label for="valorCodigo">[[${solicitud.codigo}]]</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="fechaCreacion">[[#{solicitud.fecha-creacion}]]: </label>
+                                            <label for="valorFecha">[[${solicitud.fechaCreacion}]]</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nombreDocent">[[#{solicitud.nombre-docente}]]: </label>
+                                            <label for="valorNombrePersona">[[${solicitud.persona.nombre}]]</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="correoDocente">[[#{solicitud.correo-docente}]]: </label>
+                                            <label for="valorCorreoPersona">[[${solicitud.persona.correo}]]</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="correoDocente">[[#{solicitud.celular-docente}]]: </label>
+                                            <label for="valorCorreoPersona">[[${solicitud.persona.celular}]]</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="estado">[[#{solicitud.estado}]]: </label>
+                                            <label for="valorEstado">[[${solicitud.estado.nombre}]]</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="programa">[[#{solicitud.programa}]]: </label>
+                                            <label for="valorPrograma">[[${solicitud.persona.programa.nombre}]]</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section th:fragment="cambiarEstado">
+            <form th:action="@{/guardarSolicitud}" th:object="${solicitud}"
+                  method="POST" class="was-validated">
+                <input type="hidden" name="idSolicitud" th:field="*{idSolicitud}"/>
+                <input type="hidden" name="persona" th:field="*{persona}"/>
+                <input type="hidden" name="formulario" th:field="*{formulario}"/>
+                <input type="hidden" name="fechaCreacion" th:field="*{fechaCreacion}"/>
+                <input type="hidden" name="codigo" th:field="*{codigo}"/>
+                <input type="hidden" name="puntajeTentativo" th:field="*{puntajeTentativo}"/>
+                <input type="hidden" name="tipoSolicitud" th:field="*{tipoSolicitud}"/>
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>[[#{accion.cambiar-estado}]]</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <label for="nombre">[[#{solicitud.estado}]]</label>
+                                        <select  th:field="*{estado}" name="estado" id="estado">
+                                            <option  th:each="estado : ${estados}" th:value="${estado.idEstado}" th:text="${estado.nombre}"></option>
+                                        </select>
+                                        <div class="form-group">
+                                            <section th:replace="layout/botonesSolicitud :: botonGuardarSolicitud"></section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section th:fragment="cambiarPuntaje">
+            <form th:action="@{/guardarSolicitud}" th:object="${solicitud}"
+                  method="POST" class="was-validated">
+                <input type="hidden" name="idSolicitud" th:field="*{idSolicitud}"/>
+                <input type="hidden" name="persona" th:field="*{persona}"/>
+                <input type="hidden" name="formulario" th:field="*{formulario}"/>
+                <input type="hidden" name="fechaCreacion" th:field="*{fechaCreacion}"/>
+                <input type="hidden" name="codigo" th:field="*{codigo}"/>
+                <input type="hidden" name="estado" th:field="*{estado}"/>
+                <input type="hidden" name="tipoSolicitud" th:field="*{tipoSolicitud}"/>
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>[[#{accion.cambiar-puntaje}]]</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="nombre">[[#{solicitud.puntaje-tentativo}]]</label>
+                                            <input type="text" class="form-control" name="puntajeTentativo" 
+                                                   required="true" th:field="*{puntajeTentativo}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <section th:replace="layout/botonesSolicitud :: botonGuardarSolicitud"></section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section th:fragment="listadoSolicitudes" id="solicitud">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{solicitud.titulo-lista}]]</h4>
+                            </div>
+                            <div th:if="${solicitudes != null and !solicitudes.empty}">
+                                <table class="table table-stryped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th th:text="#{solicitud.tipo-solicitud}">Tipo solicitud</th>
+                                            <th th:text="#{solicitud.codigo}">Codigo</th>
+                                            <th th:text="#{solicitud.fecha-creacion}">Fecha creacion</th>
+                                            <th th:text="#{solicitud.nombre-docente}">Nombre docente</th>
+                                            <th th:text="#{solicitud.correo-docente}">Correo docente</th>
+                                            <th th:text="#{solicitud.programa}">Programa</th>
+                                            <th th:text="#{solicitud.puntaje-tentativo}">Puntaje tentativo</th>
+                                            <th th:text="#{solicitud.estado}">Estado</th>
+                                            <th>Gestionar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="solicitud : ${solicitudes}">
+                                            <td>[[${solicitud.tipoSolicitud.nombre}]]</td>
+                                            <td>[[${solicitud.codigo}]]</td>
+                                            <td>[[${solicitud.fechaCreacion}]]</td>
+                                            <td>[[${solicitud.persona.nombre}]]</td>
+                                            <td>[[${solicitud.persona.correo}]]</td>
+                                            <td>[[${solicitud.persona.programa.nombre}]]</td>
+                                            <td>[[${solicitud.puntajeTentativo}]]</td>
+                                            <td>[[${solicitud.estado.nombre}]]</td>
+                                            <td>
+                                                <a th:href="@{/observarSolicitd/} + ${solicitud.idSolicitud}"
+                                                   class="btn btn-secondary">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.editar}]]
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center p-2" th:if="${solicitudes == null or solicitudes.empty}">
+                                <span th:text="#{solicitud.lista-vacia}">Lista vacía</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section th:fragment="agregarSolicitud">
+            <head th:replace="layout/plantilla :: head">
+                <title>Datos de la Persona</title>
+                <meta charset="UTF-8"/>
+            </head>
+            <body>
+                <header th:replace="layout/plantilla :: header"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormArticulosU"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormArticulos"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormDireccionTesis"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormPosdoctoral"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormOtrasRevistas"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormPonencia"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormAudiovisuales"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormLibroEnsayo"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormLibroInvestigacion"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormLibroTexto"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormObraArtistica"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormPatente"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormProduccionTecnica"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormSoftware"></header>
+                <header th:replace="layout/botonesFormulario :: botonAgregarFormValLibroTexto"></header>
+                <footer th:replace="layout/plantilla :: footer"></footer>        
+            </body>
+        </section>
+    </body>
+</html>
+

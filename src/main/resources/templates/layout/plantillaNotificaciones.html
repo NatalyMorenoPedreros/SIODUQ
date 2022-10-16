@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Listado notificaciones</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="observarNotificaciones" id="observarNotificaciones">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{solicitud.notificaciones}]]</h4>
+                            </div>
+                            <div th:if="${notificaciones != null and !notificaciones.empty}">
+                                <table class="table table-stryped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th th:text="#{solicitud.notificacion.fecha-creacion}">Fecha creacion</th>
+                                            <th th:text="#{solicitud.notificacion.mensaje}">Mensaje</th>
+                                            <th th:text="#{solicitud.notificacion.persona.nombre}">Usuario remitente</th>
+                                            <th th:text="#{solicitud.notificacion.persona.correo}">Correo remitente</th>
+                                            <th th:text="#{notificacion.solicitud.persona.nombre}">Usuario receptor</th>
+                                            <th th:text="#{notificacion.solicitud.persona.nombre}">Correo receptor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="notificacion : ${notificaciones}">
+                                            <td>[[${notificacion.fechaCreacion}]]</td>
+                                            <td>[[${notificacion.mensaje}]]</td>
+                                            <td>[[${notificacion.persona.nombre}]]</td>
+                                            <td>[[${notificacion.persona.correo}]]</td>
+                                            <td>[[${notificacion.solicitud.persona.nombre}]]</td>
+                                            <td>[[${notificacion.solicitud.persona.correo}]]</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center p-2" th:if="${notificaciones == null or notificaciones.empty}">
+                                <span th:text="#{solicitud.lista-vacia}">Lista vacía</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
