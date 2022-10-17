@@ -36,4 +36,5 @@ public class Constantes {
     
     static public final String NUEVA = "NUEVA";
     static public final String PRODUCTIVIDAD_ACADEMICA = "PRODUCTIVIDAD ACADEMICA";
+    static public final String BONIFICACION = "BONIFICACION";
 }

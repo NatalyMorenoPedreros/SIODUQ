@@ -15,6 +15,6 @@ public class TipoMaterial implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_tipo_material")
     private Integer idTipoMaterial;
-    @Column(name = "material")
+    @Column(name = "nombre")
     private String nombre;
 }

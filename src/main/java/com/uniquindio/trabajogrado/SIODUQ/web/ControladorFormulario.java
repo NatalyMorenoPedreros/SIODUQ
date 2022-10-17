@@ -17,7 +17,6 @@ import com.uniquindio.trabajogrado.SIODUQ.model.FORMPASoftware;
 import com.uniquindio.trabajogrado.SIODUQ.model.FORMPAValLibroTexto;
 import com.uniquindio.trabajogrado.SIODUQ.model.Formulario;
 import com.uniquindio.trabajogrado.SIODUQ.model.Persona;
-import com.uniquindio.trabajogrado.SIODUQ.model.Programa;
 import com.uniquindio.trabajogrado.SIODUQ.model.Solicitud;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoAporte;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoDifusion;
@@ -29,7 +28,6 @@ import com.uniquindio.trabajogrado.SIODUQ.model.TipoPublicacion;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoReconocimiento;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoRevista;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoTesis;
-import com.uniquindio.trabajogrado.SIODUQ.service.EstadoService;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMBONArticulosUService;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMBONDireccionTesisService;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMBONOtrasRevistasService;
@@ -53,7 +51,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMBONEstudioPosdoctoralService;
 import com.uniquindio.trabajogrado.SIODUQ.service.PersonaService;
-import com.uniquindio.trabajogrado.SIODUQ.service.ProgramaService;
 import com.uniquindio.trabajogrado.SIODUQ.service.SolicitudService;
 import com.uniquindio.trabajogrado.SIODUQ.service.TipoAporteService;
 import com.uniquindio.trabajogrado.SIODUQ.service.TipoDifusionService;
@@ -64,9 +61,7 @@ import com.uniquindio.trabajogrado.SIODUQ.service.TipoProduccionService;
 import com.uniquindio.trabajogrado.SIODUQ.service.TipoPublicacionService;
 import com.uniquindio.trabajogrado.SIODUQ.service.TipoReconocimientoService;
 import com.uniquindio.trabajogrado.SIODUQ.service.TipoRevistaService;
-import com.uniquindio.trabajogrado.SIODUQ.service.TipoSolicitudService;
 import com.uniquindio.trabajogrado.SIODUQ.service.TipoTesisService;
-import java.sql.Timestamp;
 import java.util.List;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -546,7 +541,7 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioDireccionTesisService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.PRODUCTIVIDAD_ACADEMICA);
+        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.BONIFICACION);
 
         return "redirect:/";
     }
@@ -696,7 +691,7 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioOtrasRevistasService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.PRODUCTIVIDAD_ACADEMICA);
+        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.BONIFICACION);
 
         return "redirect:/";
     }
@@ -711,7 +706,7 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioArticulosUService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.PRODUCTIVIDAD_ACADEMICA);
+        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.BONIFICACION);
 
         return "redirect:/";
     }
@@ -726,7 +721,7 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioPosdoctoralService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.PRODUCTIVIDAD_ACADEMICA);
+        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.BONIFICACION);
 
         return "redirect:/";
     }
@@ -741,7 +736,7 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioPonenciaService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.PRODUCTIVIDAD_ACADEMICA);
+        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "002", "0", Constantes.BONIFICACION);
 
         return "redirect:/";
     }

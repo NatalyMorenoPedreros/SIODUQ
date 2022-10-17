@@ -20,7 +20,7 @@
                 </div>
             </div>
         </section>
-        <section th:fragment="botonAgregarProductividadAcademica" class="py-4 mb-4 bg-light">
+        <section th:fragment="botonAgregarProductividadAcademica" class="py-4 mb-4">
             <div id="botonAgregarProductividadAcademica" class="modal fade">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -126,7 +126,7 @@
                 </div>
             </div>
         </section>
-        <section th:fragment="botonAgregarBonificacion" class="py-4 mb-4 bg-light">
+        <section th:fragment="botonAgregarBonificacion" class="py-4 mb-4">
             <div id="botonAgregarBonificacion" class="modal fade">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -143,7 +143,7 @@
                                         <div class="col">
                                             <div class="form-group">
                                                 <label for="mensaje">[[#{titulo.bon.articulosu}]]</label>
-                                                <div class="col-md-3" sec:authorize="hasRole('ROLE_USER')">
+                                                <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioArticulosU/} + ${persona.idPersona}" class="btn btn-primary btn-block">
                                                         <i class="fas fa-plus"></i> [[#{accion.agregar}]]
                                                     </a>
@@ -151,7 +151,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="mensaje">[[#{titulo.bon.otrasrevistas}]]</label>
-                                                <div class="col-md-3" sec:authorize="hasRole('ROLE_USER')">
+                                                <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioOtrasRevistas/} + ${persona.idPersona}" class="btn btn-primary btn-block">
                                                         <i class="fas fa-plus"></i> [[#{accion.agregar}]]
                                                     </a>
@@ -159,7 +159,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="mensaje">[[#{titulo.bon.direcciontesis}]]</label>
-                                                <div class="col-md-3" sec:authorize="hasRole('ROLE_USER')">
+                                                <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioDireccionTesis/} + ${persona.idPersona}" class="btn btn-primary btn-block">
                                                         <i class="fas fa-plus"></i> [[#{accion.agregar}]]
                                                     </a>
@@ -169,7 +169,7 @@
                                         <div class="col">
                                             <div class="form-group">
                                                 <label for="mensaje">[[#{titulo.bon.posdoctoral}]]</label>
-                                                <div class="col-md-3" sec:authorize="hasRole('ROLE_USER')">
+                                                <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioPosdoctoral/} + ${persona.idPersona}" class="btn btn-primary btn-block">
                                                         <i class="fas fa-plus"></i> [[#{accion.agregar}]]
                                                     </a>
@@ -177,7 +177,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="mensaje">[[#{titulo.bon.ponencia}]]</label>
-                                                <div class="col-md-3" sec:authorize="hasRole('ROLE_USER')">
+                                                <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioPonencia/} + ${persona.idPersona}" class="btn btn-primary btn-block">
                                                         <i class="fas fa-plus"></i> [[#{accion.agregar}]]
                                                     </a>
