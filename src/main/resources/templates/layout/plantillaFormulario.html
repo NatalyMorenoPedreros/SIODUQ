@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
-        <title>Solicitud</title>
+        <title>Formularios</title>
         <meta charset="UTF-8"/>
     </head>
     <body>
@@ -50,92 +50,47 @@
             </form>
         </section>
         <section th:fragment="observarFormularioPrincipal">
-            <form th:action="@{/guardarFormulario}" th:object="${formulario}" method="POST" class="was-validated">
-                <div id="details">
-                    <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                    <input type="hidden" name="codigo" th:field="*{codigo}"/>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <label for="valorFecha">[[${formulario.codigo}]]</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <label for="fechaPresentacion">[[${formulario.fechaPresentacion}]]</label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true" th:field="*{fechaPresentacion}" sec:authorize="hasRole('ROLE_USER')"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <label for="nombreAutores">[[${formulario.nombreAutores}]]</label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" th:field="*{nombreAutores}" sec:authorize="hasRole('ROLE_USER')"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <label for="numeroAutores">[[${formulario.numeroAutores}]]</label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true" th:field="*{numeroAutores}" sec:authorize="hasRole('ROLE_USER')"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </section>
-        
-        <section th:fragment="observarFormularioPrincipalPrueba">
             <div id="details" th:object="${formulario}">
-                    <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                    <input type="hidden" name="codigo" th:field="*{codigo}"/>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
+                <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
+                <input type="hidden" name="codigo" th:field="*{codigo}"/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Informaci&oacute;n formulario</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
+                                        <label for="valorFecha">[[${formulario.codigo}]]</label>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <label for="valorFecha">[[${formulario.codigo}]]</label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <label for="fechaPresentacion">[[${formulario.fechaPresentacion}]]</label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true" th:field="*{fechaPresentacion}" sec:authorize="hasRole('ROLE_USER')"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <label for="nombreAutores">[[${formulario.nombreAutores}]]</label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" th:field="*{nombreAutores}" sec:authorize="hasRole('ROLE_USER')"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <label for="numeroAutores">[[${formulario.numeroAutores}]]</label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true" th:field="*{numeroAutores}" sec:authorize="hasRole('ROLE_USER')"/>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
+                                        <label for="fechaPresentacion">[[${formulario.fechaPresentacion}]]</label>
+                                        <input type="text" class="form-control" name="fechaPresentacion" required="true" th:field="*{fechaPresentacion}" sec:authorize="hasRole('ROLE_USER')"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
+                                        <label for="nombreAutores">[[${formulario.nombreAutores}]]</label>
+                                        <input type="text" class="form-control" name="nombreAutores" required="true" th:field="*{nombreAutores}" sec:authorize="hasRole('ROLE_USER')"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
+                                        <label for="numeroAutores">[[${formulario.numeroAutores}]]</label>
+                                        <input type="text" class="form-control" name="numeroAutores" required="true" th:field="*{numeroAutores}" sec:authorize="hasRole('ROLE_USER')"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
         <section th:fragment="observarFormularioEstudioPosdoctoral">
             <form th:action="@{/guardarFormularioPosdoctoral}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
                 <div id="details" >
                     <div class="container">
                         <div class="row">
@@ -167,21 +122,20 @@
                                             <label for="valorentidad">[[${formularioEspecifico.entidad}]]</label>
                                             <input type="text" class="form-control" name="entidad" required="true" th:field="*{entidad}" sec:authorize="hasRole('ROLE_USER')"/>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioArticulos">
             <form th:action="@{/guardarFormularioArticulos}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -291,21 +245,20 @@
                                                 <option  th:each="tiporevista : ${tipoRevistas}" th:value="${tiporevista.idTipoRevista}" th:text="${tiporevista.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioArticulosU">
             <form th:action="@{/guardarFormularioArticulosU}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -331,21 +284,20 @@
                                             <label for="valorfechafinal">[[${formularioEspecifico.anioPublicacion}]]</label>
                                             <input type="text" class="form-control" name="anioPublicacion" required="true" th:field="*{anioPublicacion}" sec:authorize="hasRole('ROLE_USER')"/>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioAudioVisuales">
             <form th:action="@{/guardarFormularioAudiovisuales}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -417,21 +369,20 @@
                                             <label for="valorentidad">[[${formularioEspecifico.guia}]]</label>
                                             <input type="text" class="form-control" name="guia" required="true" th:field="*{guia}" sec:authorize="hasRole('ROLE_USER')"/>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioDireccionTesis">
             <form th:action="@{/guardarFormularioDireccionTesis}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -469,21 +420,20 @@
                                                 <option  th:each="tipotesis : ${tiposTesis}" th:value="${tipotesis.idTipoTesis}" th:text="${tipotesis.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioLibroEnsayo">
             <form th:action="@{/guardarFormularioLibroEnsayo}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -529,21 +479,20 @@
                                             <label for="valorentidad">[[${formularioEspecifico.certificadoPrimeraVez}]]</label>
                                             <input type="text" class="form-control" name="certificadoPrimeraVez" required="true" th:field="*{certificadoPrimeraVez}" sec:authorize="hasRole('ROLE_USER')"/>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioLibroInvestigacion">
             <form th:action="@{/guardarFormularioLibroInvestigacion}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -614,21 +563,20 @@
                                             <label for="valorentidad">[[${formularioEspecifico.certificadoPrimeraVez}]]</label>
                                             <input type="text" class="form-control" name="certificadoPrimeraVez" required="true" th:field="*{certificadoPrimeraVez}" sec:authorize="hasRole('ROLE_USER')"/>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioLibroTexto">
             <form th:action="@{/guardarFormularioLibroTexto}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -695,21 +643,20 @@
                                             <label for="valorentidad">[[${formularioEspecifico.certificadoPrimeraVez}]]</label>
                                             <input type="text" class="form-control" name="certificadoPrimeraVez" required="true" th:field="*{certificadoPrimeraVez}" sec:authorize="hasRole('ROLE_USER')"/>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioObraArtistica">
             <form th:action="@{/guardarFormularioObraArtistica}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -804,21 +751,20 @@
                                             <label for="valorentidad">[[${formularioEspecifico.fechaCreacionGuion}]]</label>
                                             <input type="text" class="form-control" name="fechaCreacionGuion" required="true" th:field="*{fechaCreacionGuion}" sec:authorize="hasRole('ROLE_USER')"/>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioOtrasRevistas">
             <form th:action="@{/guardarFormularioOtrasRevistas}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -915,21 +861,20 @@
                                             <label for="valorentidad">[[${formularioEspecifico.editorial}]]</label>
                                             <input type="text" class="form-control" name="editorial" required="true" th:field="*{editorial}" sec:authorize="hasRole('ROLE_USER')"/>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioPatente">
             <form th:action="@{/guardarFormularioPatente}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -977,21 +922,20 @@
                                                 <option  th:each="tipopatente : ${tipoPatentes}" th:value="${tipopatente.idTipoPatente}" th:text="${tipopatente.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioPonencia">
             <form th:action="@{/guardarFormularioPonencia}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -1039,21 +983,20 @@
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioProduccionTecnica">
             <form th:action="@{/guardarFormularioProduccionTecnica}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -1086,21 +1029,20 @@
                                                 <option  th:each="tipoproduccion : ${tipoProducciones}" th:value="${tipoproduccion.idTipoProduccion}" th:text="${tipoproduccion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioSoftware">
             <form th:action="@{/guardarFormularioSoftware}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -1138,21 +1080,20 @@
                                                 <option  th:each="tipoproduccion : ${tipoProducciones}" th:value="${tipoproduccion.idTipoProduccion}" th:text="${tipoproduccion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
         <section th:fragment="observarFormularioPremio">
             <form th:action="@{/guardarFormularioPremio}" th:object="${formularioEspecifico}" method="POST" class="was-validated">    
                 <input type="hidden" name="idFormulario" th:field="*{idFormulario}"/>
-                <div id="details" th:object="${formularioEspecifico}">
+                <section th:replace="layout/plantillaFormulario :: observarFormularioPrincipal"></section>
+                <div id="details">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -1200,90 +1141,53 @@
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
-        <section th:fragment="crearFormularioPrincipal" th:object="${persona}">
-            <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
-            <form th:action="@{/agregarFormularioGeneral/} + ${persona.idPersona}" th:object="${formulario}" method="POST" class="was-validated">
-                <div id="details">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
+        <!-- CREACION DE NUEVOS FORMULARIOS -->
+        <section th:fragment="crearFormularioPrincipal">
+            <div id="details" th:object="${formulario}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Informaci&oacute;n formulario</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
+                                        <input type="text" class="form-control" name="codigo" value="VIGAGH04F55" required="true" readonly/>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F55" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
+                                        <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
+                                        <input type="text" class="form-control" name="nombreAutores" required="true" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
+                                        <input type="text" class="form-control" name="numeroAutores" required="true"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </section>
-        <!-- Secciones para guardar solicitudes con formularios nuevos-->
+
         <section th:fragment="crearFormularioArticulos" th:object="${persona}">
             <form th:action="@{/agregarFormularioArticulos/} + ${persona.idPersona}" method="POST" class="was-validated">
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F55" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -1385,37 +1289,7 @@
         </section>
         <section th:fragment="crearFormularioDireccionTesis" th:object="${persona}">
             <form th:action="@{/agregarFormularioDireccionTesis/} + ${persona.idPersona}" method="POST" class="was-validated">    
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F59" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -1459,37 +1333,7 @@
         </section>
         <section th:fragment="crearFormularioSoftware" th:object="${persona}">
             <form th:action="@{/agregarFormularioSoftware/} + ${persona.idPersona}" method="POST" class="was-validated">    
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F63" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -1533,37 +1377,7 @@
         </section>
         <section th:fragment="crearFormularioProduccionTecnica" th:object="${persona}">
             <form th:action="@{/agregarFormularioProduccionTecnica/} + ${persona.idPersona}" method="POST" class="was-validated">    
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F54" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -1603,37 +1417,7 @@
         </section>
         <section th:fragment="crearFormularioPatente" th:object="${persona}">
             <form th:action="@{/agregarFormularioPatente/} + ${persona.idPersona}" method="POST" class="was-validated">    
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F62" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -1685,37 +1469,7 @@
         </section>
         <section th:fragment="crearFormularioObraArtistica" th:object="${persona}">
             <form th:action="@{/agregarFormularioObraArtistica/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F57" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -1805,37 +1559,7 @@
         </section>
         <section th:fragment="crearFormularioLibroInvestigacion" th:object="${persona}">
             <form th:action="@{/agregarFormularioLibroInvestigacion/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F52" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -1905,37 +1629,7 @@
         </section>
         <section th:fragment="crearFormularioLibroTexto" th:object="${persona}">
             <form th:action="@{/agregarFormularioLibroTexto/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F90" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -2002,37 +1696,7 @@
         </section>
         <section th:fragment="crearFormularioLibroEnsayo" th:object="${persona}">
             <form th:action="@{/agregarFormularioLibroEnsayo/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F91" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -2082,37 +1746,7 @@
         </section>
         <section th:fragment="crearFormularioAudioVisuales" th:object="${persona}">
             <form th:action="@{/agregarFormularioAudioVisuales/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F56" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -2184,37 +1818,7 @@
         </section>
         <section th:fragment="crearFormularioPremio" th:object="${persona}">
             <form th:action="@{/agregarFormularioPremio/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F53" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -2266,37 +1870,7 @@
         </section>
         <section th:fragment="crearFormularioPonencia" th:object="${persona}">
             <form th:action="@{/agregarFormularioPonencia/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F60" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -2348,37 +1922,7 @@
         </section>
         <section th:fragment="crearFormularioPosdoctoral" th:object="${persona}">
             <form th:action="@{/agregarFormularioPosdoctoral/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F83" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -2416,37 +1960,7 @@
         </section>
         <section th:fragment="crearFormularioOtrasRevistas" th:object="${persona}">
             <form th:action="@{/agregarFormularioOtrasRevistas/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F64" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">
@@ -2538,37 +2052,7 @@
         </section>
         <section th:fragment="crearFormularioArticulosU" th:object="${persona}">
             <form th:action="@{/agregarFormularioArticulosU/} + ${persona.idPersona}" method="POST" class="was-validated"> 
-                <div id="details" th:object="${formulario}">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Informaci&oacute;n formulario</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <input type="text" class="form-control" name="codigo" value="VIGAGH04F61" required="true" readonly/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <input type="text" class="form-control" name="fechaPresentacion" required="true"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nombreAutores">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <input type="text" class="form-control" name="nombreAutores" required="true" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroAutores">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <input type="text" class="form-control" name="numeroAutores" required="true"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
                         <div class="row">

@@ -262,7 +262,7 @@ public class ControladorFormulario {
             case Constantes.FPAPATENTE:
                 FORMPAPatente formularioPatente = formularioPatenteService.encontrarFORMPAPatente(formulario.getIdFormulario());
                 tipoPatentes = tipoPatenteService.listarTipoPatentes();
-                
+
                 model.addAttribute("formularioEspecifico", formularioPatente);
                 model.addAttribute("tipoPatentes", tipoPatentes);
 
@@ -272,7 +272,7 @@ public class ControladorFormulario {
             case Constantes.FPAPRODTEC:
                 FORMPAProduccionTecnica formularioProduccionTecnica = formularioProduccionTecnicaService.encontrarFORMPAProduccionTecnica(formulario.getIdFormulario());
                 tipoProducciones = tipoProduccionService.listarTipoProducciones();
-                
+
                 model.addAttribute("formularioEspecifico", formularioProduccionTecnica);
                 model.addAttribute("tipoProducciones", tipoProducciones);
 
@@ -282,10 +282,10 @@ public class ControladorFormulario {
             case Constantes.FPASOFT:
                 FORMPASoftware formularioSoftware = formularioSoftwareService.encontrarFORMPASoftware(formulario.getIdFormulario());
                 tipoProducciones = tipoProduccionService.listarTipoProducciones();
-                
+
                 model.addAttribute("formularioEspecifico", formularioSoftware);
                 model.addAttribute("tipoProducciones", tipoProducciones);
-                
+
                 ruta = Constantes.FPASOFTRUTA;
 
                 break;
@@ -307,114 +307,122 @@ public class ControladorFormulario {
         return ruta;
     }
 
-    @PostMapping("/guardarFormulario")
-    public String guardar(@Validated Formulario formulario, Errors errores) {
+    @PostMapping("/guardarFormularioPosdoctoral")
+    public String guardar(@Validated Formulario formulario, @Validated FORMBONEstudioPosdoctoral formularioEspecifico, Errors errores) {
 
         formularioService.guardar(formulario);
-        return "redirect:/observarFormulario/" + formulario.getIdFormulario();
-    }
-
-    @PostMapping("/guardarFormularioPosdoctoral")
-    public String guardar(@Validated FORMBONEstudioPosdoctoral formularioEspecifico, Errors errores) {
-
         formularioPosdoctoralService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioArticulos")
-    public String guardar(@Validated FORMPAArticulos formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPAArticulos formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioArticulosService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioDireccionTesis")
-    public String guardar(@Validated FORMBONDireccionTesis formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMBONDireccionTesis formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioDireccionTesisService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioOtrasRevistas")
-    public String guardar(@Validated FORMPAOtrasRevistas formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPAOtrasRevistas formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioOtrasRevistasService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioPonencia")
-    public String guardar(@Validated FORMBONPonencia formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMBONPonencia formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioPonenciaService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioArticulosU")
-    public String guardar(@Validated FORMBONArticulosU formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMBONArticulosU formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioArticulosUService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioAudiovisuales")
-    public String guardar(@Validated FORMPAAudiovisuales formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPAAudiovisuales formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioAudiovisualService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioLibroEnsayo")
-    public String guardar(@Validated FORMPALibroEnsayo formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPALibroEnsayo formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioLibroEnsayoService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioLibroInvestigacion")
-    public String guardar(@Validated FORMPALibroInvestigacion formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPALibroInvestigacion formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioLibroInvestigacionService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioLibroTexto")
-    public String guardar(@Validated FORMPALibroTexto formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPALibroTexto formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioLibroTextoService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioObraArtistica")
-    public String guardar(@Validated FORMPAObraArtistica formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPAObraArtistica formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioObraArtisticaService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioPatente")
-    public String guardar(@Validated FORMPAPatente formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPAPatente formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioPatenteService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioProduccionTecnica")
-    public String guardar(@Validated FORMPAProduccionTecnica formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPAProduccionTecnica formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioProduccionTecnicaService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioSoftware")
-    public String guardar(@Validated FORMPASoftware formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPASoftware formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioSoftwareService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
 
     @PostMapping("/guardarFormularioPremio")
-    public String guardar(@Validated FORMPAPremio formularioEspecifico, Errors errores) {
+    public String guardar(@Validated Formulario formulario, @Validated FORMPAPremio formularioEspecifico, Errors errores) {
 
+        formularioService.guardar(formulario);
         formularioPremioService.guardar(formularioEspecifico);
         return "redirect:/observarFormulario/" + formularioEspecifico.getIdFormulario();
     }
