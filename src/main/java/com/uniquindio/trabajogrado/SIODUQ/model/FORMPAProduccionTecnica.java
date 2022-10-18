@@ -12,8 +12,7 @@ public class FORMPAProduccionTecnica implements Serializable{
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "idformulario")
+    @Column(name = "idformulario")
     private Integer idFormulario;
     
     @OneToOne

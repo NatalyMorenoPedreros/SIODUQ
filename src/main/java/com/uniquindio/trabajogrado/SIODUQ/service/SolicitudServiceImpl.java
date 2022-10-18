@@ -1,15 +1,14 @@
 package com.uniquindio.trabajogrado.SIODUQ.service;
 
 import com.uniquindio.trabajogrado.SIODUQ.dao.ISolicitudDao;
-import com.uniquindio.trabajogrado.SIODUQ.model.Estado;
 import com.uniquindio.trabajogrado.SIODUQ.model.Formulario;
 import com.uniquindio.trabajogrado.SIODUQ.model.Persona;
-import com.uniquindio.trabajogrado.SIODUQ.model.Programa;
 import com.uniquindio.trabajogrado.SIODUQ.model.Solicitud;
-import com.uniquindio.trabajogrado.SIODUQ.model.TipoSolicitud;
 import com.uniquindio.trabajogrado.SIODUQ.util.Constantes;
+import com.uniquindio.trabajogrado.SIODUQ.util.Utilidades;
 import java.sql.Timestamp;
 import java.util.List;
+import javax.swing.text.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,11 +53,11 @@ public class SolicitudServiceImpl implements SolicitudService {
     }
 
     @Override
-    public void construirSolicitud(Persona persona, String estado, Formulario formulario, String codigo, String puntaje, String tipoSolicitud) {
+    public void construirSolicitud(Persona persona, String estado, Formulario formulario, String puntaje, String tipoSolicitud) {
         Timestamp fechaCreacion = new Timestamp(System.currentTimeMillis());
 
         Solicitud solicitud = new Solicitud();
-        solicitud.setCodigo(codigo);
+        solicitud.setCodigo(Utilidades.realizarCodigo(contarSolicitudesPorPersona(persona), tipoSolicitud));
         solicitud.setEstado(estadoService.encontrarEstadoPorNombre(Constantes.NUEVA));
         solicitud.setFormulario(formulario);
         solicitud.setPersona(persona);
@@ -68,4 +67,10 @@ public class SolicitudServiceImpl implements SolicitudService {
         guardar(solicitud);
     }
 
+    @Override
+    public long contarSolicitudesPorPersona(Persona persona) {
+        return solicitudDao.countByPersona(persona);
+    }
+
+    
 }

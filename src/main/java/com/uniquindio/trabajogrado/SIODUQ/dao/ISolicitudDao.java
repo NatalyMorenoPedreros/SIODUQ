@@ -12,4 +12,6 @@ public interface ISolicitudDao extends JpaRepository<Solicitud, Integer>{
     
     Solicitud findByFormulario (Formulario formulario);
     
+    long countByPersona(Persona persona);
+    
 }

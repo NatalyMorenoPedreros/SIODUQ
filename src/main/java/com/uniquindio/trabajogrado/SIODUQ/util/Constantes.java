@@ -16,8 +16,8 @@ public class Constantes {
     static public final String FPAPATENTE = "VIGAGH04F62";
     static public final String FPAPRODTEC = "VIGAGH04F54";
     static public final String FPASOFT = "VIGAGH04F63";
-    static public final String FPAVALLIBROT = "VIGAGH04F80";
-    
+    static public final String FPAPREMIO = "VIGAGH04F53";
+
     static public final String FBARTICULORUTA = "gestionarFormularioArticuloU";
     static public final String FBDIRECCIONTRUTA = "gestionarFormularioDireccionTesis";
     static public final String FBESTUDIOPOSRUTA = "gestionarFormularioEstudioPosdoctoral";
@@ -32,9 +32,40 @@ public class Constantes {
     static public final String FPAPATENTERUTA = "gestionarFormularioPatente";
     static public final String FPAPRODTECRUTA = "gestionarFormularioProduccionTecnica";
     static public final String FPASOFTRUTA = "gestionarFormularioSoftware";
-    static public final String FPAVALLIBROTRUTA = "gestionarFormularioValLibroTexto";
-    
+    static public final String FPAPREMIORUTA = "gestionarFormularioPremio";
+
     static public final String NUEVA = "NUEVA";
     static public final String PRODUCTIVIDAD_ACADEMICA = "PRODUCTIVIDAD ACADEMICA";
     static public final String BONIFICACION = "BONIFICACION";
+    static public final String PREFIJO_PA = "PA";
+    static public final String PREFIJO_BON = "BON";
+
+    static public final String ARTICULOS_CATEGORIA_A1 = "A1";
+    static public final String ARTICULOS_CATEGORIA_A2 = "A2";
+    static public final String ARTICULOS_CATEGORIA_B = "B";
+    static public final String ARTICULOS_CATEGORIA_C = "C";
+    static public final String DIFUSION_NACIONAL = "Nacional";
+    static public final String DIFUSION_INTERNACIONAL = "Internacional";
+    static public final String DIFUSION_REGIONAL = "Regional";
+
+    static public final String PUNTAJE_OTRAS_REVISTAS = "0";
+    static public final String PUNTAJE_PREMIO = "15";
+    static public final String PUNTAJE_DIRECCION_TESIS = "36";
+    static public final String PUNTAJE_POSDOCTORAL = "120";
+    static public final String PUNTAJE_ARTICULOS_U = "60";
+    static public final String PUNTAJE_OBRA_ARTISTICA = "20";
+    static public final String PUNTAJE_DIFUSION_NACIONAL = "12";
+    static public final String PUNTAJE_DIFUSION_INTERNACIONAL = "7";
+    static public final String PUNTAJE_LIBRO_INVESTIGACION = "20";
+    static public final String PUNTAJE_LIBRO_ENSAYO = "15";
+    static public final String PUNTAJE_LIBRO_TEXTO = "15";
+    static public final String PUNTAJE_PATENTE = "25";
+    static public final String PUNTAJE_SOFTWARE = "15";
+    static public final String PUNTAJE_ARTICULOS_CATEGORIA_A1 = "15";
+    static public final String PUNTAJE_ARTICULOS_CATEGORIA_A2 = "12";
+    static public final String PUNTAJE_ARTICULOS_CATEGORIA_B = "8";
+    static public final String PUNTAJE_ARTICULOS_CATEGORIA_C = "3";
+    static public final String PUNTAJE_DIFUSION_NACIONAL_PONENCIA = "48";
+    static public final String PUNTAJE_DIFUSION_INTERNACIONAL_PONENCIA = "84";
+    static public final String PUNTAJE_DIFUSION_REGIONAL_PONENCIA = "24";
 }

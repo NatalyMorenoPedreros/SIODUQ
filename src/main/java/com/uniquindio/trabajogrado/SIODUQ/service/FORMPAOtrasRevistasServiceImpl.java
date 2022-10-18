@@ -1,34 +1,34 @@
 package com.uniquindio.trabajogrado.SIODUQ.service;
 
 import com.uniquindio.trabajogrado.SIODUQ.dao.IFORMBONOtrasRevistasDao;
-import com.uniquindio.trabajogrado.SIODUQ.model.FORMBONOtrasRevistas;
+import com.uniquindio.trabajogrado.SIODUQ.model.FORMPAOtrasRevistas;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FORMBONOtrasRevistasServiceImpl implements FORMBONOtrasRevistasService{
+public class FORMPAOtrasRevistasServiceImpl implements FORMPAOtrasRevistasService{
 
     @Autowired
     private IFORMBONOtrasRevistasDao formularioDao;
     
     @Override
-    public List<FORMBONOtrasRevistas> listarFORMBONOtrasRevistas() {
-        return (List<FORMBONOtrasRevistas>) formularioDao.findAll();
+    public List<FORMPAOtrasRevistas> listarFORMBONOtrasRevistas() {
+        return (List<FORMPAOtrasRevistas>) formularioDao.findAll();
     }
 
     @Override
-    public void guardar(FORMBONOtrasRevistas formulario) {
+    public void guardar(FORMPAOtrasRevistas formulario) {
         formularioDao.save(formulario);
     }
 
     @Override
-    public void eliminar(FORMBONOtrasRevistas formulario) {
+    public void eliminar(FORMPAOtrasRevistas formulario) {
         formularioDao.delete(formulario);
     }
 
     @Override
-    public FORMBONOtrasRevistas encontrarFORMBONOtrasRevistas(Integer formulario) {
+    public FORMPAOtrasRevistas encontrarFORMBONOtrasRevistas(Integer formulario) {
         return formularioDao.findById(formulario).orElse(null);
     }
     

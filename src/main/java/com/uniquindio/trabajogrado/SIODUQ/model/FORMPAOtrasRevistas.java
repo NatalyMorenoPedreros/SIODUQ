@@ -6,14 +6,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "formbon_otras_revistas")
-public class FORMBONOtrasRevistas implements Serializable{
+@Table(name = "formpa_otras_revistas")
+public class FORMPAOtrasRevistas implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "idformulario")
+    @Column(name = "idformulario")
     private Integer idFormulario;
     
     @OneToOne
