@@ -8,7 +8,6 @@ import com.uniquindio.trabajogrado.SIODUQ.util.Constantes;
 import com.uniquindio.trabajogrado.SIODUQ.util.Utilidades;
 import java.sql.Timestamp;
 import java.util.List;
-import javax.swing.text.Utilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +20,8 @@ public class SolicitudServiceImpl implements SolicitudService {
     private EstadoService estadoService;
     @Autowired
     private TipoSolicitudService tipoSolicitudService;
+    @Autowired
+    private NotificacionService notificacionService;
 
     @Override
     public List<Solicitud> listarSolicitudes() {
@@ -65,6 +66,8 @@ public class SolicitudServiceImpl implements SolicitudService {
         solicitud.setTipoSolicitud(tipoSolicitudService.encontrarTipoPorNombre(Constantes.PRODUCTIVIDAD_ACADEMICA));
         solicitud.setFechaCreacion(fechaCreacion);
         guardar(solicitud);
+        
+        notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_CREACION_NUEVA);
     }
 
     @Override

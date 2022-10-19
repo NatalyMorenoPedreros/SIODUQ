@@ -1,8 +1,13 @@
 package com.uniquindio.trabajogrado.SIODUQ.service;
 
 import com.uniquindio.trabajogrado.SIODUQ.dao.INotificacionDao;
+import com.uniquindio.trabajogrado.SIODUQ.model.Formulario;
 import com.uniquindio.trabajogrado.SIODUQ.model.Notificacion;
+import com.uniquindio.trabajogrado.SIODUQ.model.Persona;
 import com.uniquindio.trabajogrado.SIODUQ.model.Solicitud;
+import com.uniquindio.trabajogrado.SIODUQ.util.Constantes;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +17,9 @@ public class NotificacionServiceImpl implements NotificacionService{
 
     @Autowired
     private INotificacionDao notificacionDao;
+    
+    @Autowired
+    private CorreoService correoService;
     
     @Override
     public List<Notificacion> listarNotificaciones() {
@@ -37,5 +45,32 @@ public class NotificacionServiceImpl implements NotificacionService{
     public List<Notificacion> listarPorSolicitud(Solicitud solicitud) {
         return (List<Notificacion>) notificacionDao.findBySolicitud(solicitud);
     }
+
+    @Override
+    public void construirNotificacion(Solicitud solicitud, String mensaje) {
+        
+        Notificacion notificacion = new Notificacion();
+        
+        notificacion.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
+        notificacion.setMensaje(mensaje);
+        notificacion.setSolicitud(solicitud);
+        
+        guardar(notificacion);
+        
+        enviarCorreos(solicitud, mensaje);
+    }
     
+    public void enviarCorreos(Solicitud solicitud, String mensaje){
+        List<String> correos = new ArrayList<>();
+        correos.add(Constantes.CORREO_ADMINISTRADOR);
+        correos.add(solicitud.getPersona().getCorreo());
+        
+        String cuerpo = mensaje + "\n" 
+                + "Codigo solicitud: " + solicitud.getCodigo() + "\n"
+                + "Fecha creacion: " + solicitud.getFechaCreacion() + "\n"
+                + "Puntaje: " + solicitud.getPuntajeTentativo() + "\n"
+                + "Estado: " + solicitud.getEstado().getNombre();
+        
+        correoService.sendEmail(correos, Constantes.CORREO_ASUNTO_CREACION_NUEVA, cuerpo);
+    }
 }

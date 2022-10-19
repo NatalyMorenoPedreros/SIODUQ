@@ -65,6 +65,5 @@ public class ControladorSolicitud {
         solicitudService.guardar(solicitud);
         return "redirect:/";
     }
-    
-//    
+        
 }

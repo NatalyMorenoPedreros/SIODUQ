@@ -21,20 +21,12 @@
                                         <tr>
                                             <th th:text="#{solicitud.notificacion.fecha-creacion}">Fecha creacion</th>
                                             <th th:text="#{solicitud.notificacion.mensaje}">Mensaje</th>
-                                            <th th:text="#{solicitud.notificacion.persona.nombre}">Usuario remitente</th>
-                                            <th th:text="#{solicitud.notificacion.persona.correo}">Correo remitente</th>
-                                            <th th:text="#{notificacion.solicitud.persona.nombre}">Usuario receptor</th>
-                                            <th th:text="#{notificacion.solicitud.persona.nombre}">Correo receptor</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="notificacion : ${notificaciones}">
                                             <td>[[${notificacion.fechaCreacion}]]</td>
                                             <td>[[${notificacion.mensaje}]]</td>
-                                            <td>[[${notificacion.persona.nombre}]]</td>
-                                            <td>[[${notificacion.persona.correo}]]</td>
-                                            <td>[[${notificacion.solicitud.persona.nombre}]]</td>
-                                            <td>[[${notificacion.solicitud.persona.correo}]]</td>
                                         </tr>
                                     </tbody>
                                 </table>

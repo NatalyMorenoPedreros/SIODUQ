@@ -16,11 +16,7 @@ public class Notificacion implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_notificacion")
     private Integer idNotificacion;
-    
-    @ManyToOne
-    @JoinColumn(name = "persona")
-    Persona persona;
-    
+
     @ManyToOne
     @JoinColumn(name = "solicitud")
     Solicitud solicitud;

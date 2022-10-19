@@ -14,4 +14,6 @@ public interface NotificacionService {
     public Notificacion encontrarNotificacion(Notificacion notificacion);
     
     public List<Notificacion> listarPorSolicitud(Solicitud solicitud);
+    
+    public void construirNotificacion(Solicitud solicitud, String mensaje);
 }

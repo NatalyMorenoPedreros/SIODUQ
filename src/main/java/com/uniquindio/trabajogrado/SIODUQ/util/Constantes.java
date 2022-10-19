@@ -68,4 +68,8 @@ public class Constantes {
     static public final String PUNTAJE_DIFUSION_NACIONAL_PONENCIA = "48";
     static public final String PUNTAJE_DIFUSION_INTERNACIONAL_PONENCIA = "84";
     static public final String PUNTAJE_DIFUSION_REGIONAL_PONENCIA = "24";
+
+    static public final String CORREO_ADMINISTRADOR = "natalymoreno@hotmail.com.ar";
+    static public final String CORREO_ASUNTO_CREACION_NUEVA = "NOTIFICACION DE CAMBIO EN SOLICITUD ";
+    static public final String CORREO_CUERPO_CREACION_NUEVA = "Se crea una nueva solicitud con los datos a continuacion. Tener en cuenta que estara creada en estado NUEVO y sera verificada por los encargados de la oficina docente.\n NOTA: El puntaje definido en este correo no es el definitivo, esta sometido a cambios.";
 }
