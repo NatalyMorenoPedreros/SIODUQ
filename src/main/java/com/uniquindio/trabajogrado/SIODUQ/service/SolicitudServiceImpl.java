@@ -29,8 +29,9 @@ public class SolicitudServiceImpl implements SolicitudService {
     }
 
     @Override
-    public void guardar(Solicitud solicitud) {
+    public void guardar(Solicitud solicitud, String mensajeCorreo) {
         solicitudDao.save(solicitud);
+        notificacionService.construirNotificacion(solicitud, mensajeCorreo);
     }
 
     @Override
@@ -54,7 +55,7 @@ public class SolicitudServiceImpl implements SolicitudService {
     }
 
     @Override
-    public void construirSolicitud(Persona persona, String estado, Formulario formulario, String puntaje, String tipoSolicitud) {
+    public void construirSolicitud(Persona persona, String estado, Formulario formulario, String puntaje, String tipoSolicitud, String mensajeCorreo) {
         Timestamp fechaCreacion = new Timestamp(System.currentTimeMillis());
 
         Solicitud solicitud = new Solicitud();
@@ -63,11 +64,10 @@ public class SolicitudServiceImpl implements SolicitudService {
         solicitud.setFormulario(formulario);
         solicitud.setPersona(persona);
         solicitud.setPuntajeTentativo(puntaje);
-        solicitud.setTipoSolicitud(tipoSolicitudService.encontrarTipoPorNombre(Constantes.PRODUCTIVIDAD_ACADEMICA));
+        solicitud.setTipoSolicitud(tipoSolicitudService.encontrarTipoPorNombre(tipoSolicitud));
         solicitud.setFechaCreacion(fechaCreacion);
-        guardar(solicitud);
+        guardar(solicitud, mensajeCorreo);
         
-        notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_CREACION_NUEVA);
     }
 
     @Override

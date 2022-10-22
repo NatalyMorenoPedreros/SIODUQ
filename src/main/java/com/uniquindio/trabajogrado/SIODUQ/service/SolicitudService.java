@@ -9,7 +9,7 @@ public interface SolicitudService {
 
     public List<Solicitud> listarSolicitudes();
 
-    public void guardar(Solicitud solicitud);
+    public void guardar(Solicitud solicitud, String mensajeCorreo);
 
     public void eliminar(Solicitud solicitud);
 
@@ -19,7 +19,7 @@ public interface SolicitudService {
 
     public Solicitud buscarSolicitudPorFormulario(Formulario formulario);
 
-    public void construirSolicitud(Persona persona, String estado, Formulario formulario, String puntaje, String tipoSolicitud);
+    public void construirSolicitud(Persona persona, String estado, Formulario formulario, String puntaje, String tipoSolicitud, String mensajeCorreo);
 
     public long contarSolicitudesPorPersona(Persona persona);
 }

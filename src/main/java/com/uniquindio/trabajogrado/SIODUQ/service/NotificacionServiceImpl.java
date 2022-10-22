@@ -51,26 +51,25 @@ public class NotificacionServiceImpl implements NotificacionService{
         
         Notificacion notificacion = new Notificacion();
         
+        mensaje = mensaje + "\n"
+                + "Codigo solicitud: " + solicitud.getCodigo() + "\n"
+                + "Fecha creacion: " + solicitud.getFechaCreacion() + "\n"
+                + "Puntaje: " + solicitud.getPuntajeTentativo() + "\n"
+                + "Estado: " + solicitud.getEstado().getNombre();
+        
         notificacion.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
         notificacion.setMensaje(mensaje);
         notificacion.setSolicitud(solicitud);
         
         guardar(notificacion);
         
-        enviarCorreos(solicitud, mensaje);
+        enviarCorreos(solicitud.getPersona().getCorreo(), mensaje);
     }
     
-    public void enviarCorreos(Solicitud solicitud, String mensaje){
+    public void enviarCorreos(String correoDocente, String mensaje){
         List<String> correos = new ArrayList<>();
         correos.add(Constantes.CORREO_ADMINISTRADOR);
-        correos.add(solicitud.getPersona().getCorreo());
-        
-        String cuerpo = mensaje + "\n" 
-                + "Codigo solicitud: " + solicitud.getCodigo() + "\n"
-                + "Fecha creacion: " + solicitud.getFechaCreacion() + "\n"
-                + "Puntaje: " + solicitud.getPuntajeTentativo() + "\n"
-                + "Estado: " + solicitud.getEstado().getNombre();
-        
-        correoService.sendEmail(correos, Constantes.CORREO_ASUNTO_CREACION_NUEVA, cuerpo);
+        correos.add(correoDocente);
+        correoService.sendEmail(correos, Constantes.CORREO_ASUNTO_CREACION_NUEVA, mensaje);
     }
 }

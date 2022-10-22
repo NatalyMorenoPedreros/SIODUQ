@@ -70,6 +70,8 @@ public class Constantes {
     static public final String PUNTAJE_DIFUSION_REGIONAL_PONENCIA = "24";
 
     static public final String CORREO_ADMINISTRADOR = "natalymoreno@hotmail.com.ar";
-    static public final String CORREO_ASUNTO_CREACION_NUEVA = "NOTIFICACION DE CAMBIO EN SOLICITUD ";
-    static public final String CORREO_CUERPO_CREACION_NUEVA = "Se crea una nueva solicitud con los datos a continuacion. Tener en cuenta que estara creada en estado NUEVO y sera verificada por los encargados de la oficina docente.\n NOTA: El puntaje definido en este correo no es el definitivo, esta sometido a cambios.";
+    static public final String CORREO_ASUNTO_CREACION_NUEVA = "NOTIFICACION DE CAMBIO EN SOLICITUD";
+    static public final String CORREO_CUERPO_CREACION_NUEVA = "Se notifica la creacion de una nueva solicitud con los datos a continuacion. Tener en cuenta que estara creada en estado NUEVO y sera verificada por los encargados de la oficina docente.\n NOTA: El puntaje definido en este correo no es el definitivo, esta sometido a cambios.";
+    static public final String CORREO_CUERPO_MODIFICACION = "Se notifica la modificacion de la solicitud en estado y/o puntaje. Verificar la informacion";
+    static public final String CORREO_CUERPO_MODIFICA_FORMULARIO = "Se notifica cambios en el formulario de la solicitud. Verificar la informacion";
 }
