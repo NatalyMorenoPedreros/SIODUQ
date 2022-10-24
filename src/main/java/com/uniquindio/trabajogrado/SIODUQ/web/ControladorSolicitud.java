@@ -30,7 +30,7 @@ public class ControladorSolicitud {
     @Autowired
     private EstadoService estadoService;
     
-    @GetMapping("/observarSolicitd/{idSolicitud}")
+    @GetMapping("/observarSolicitud/{idSolicitud}")
     public String listar(Solicitud solicitud, Model model){
         solicitud = solicitudService.encontrarSolicitud(solicitud);
         model.addAttribute("solicitud", solicitud);

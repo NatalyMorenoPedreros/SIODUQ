@@ -317,7 +317,7 @@ public class ControladorFormulario {
         formularioPosdoctoralService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioArticulos")
@@ -327,7 +327,7 @@ public class ControladorFormulario {
         formularioArticulosService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioDireccionTesis")
@@ -337,7 +337,7 @@ public class ControladorFormulario {
         formularioDireccionTesisService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioOtrasRevistas")
@@ -347,7 +347,7 @@ public class ControladorFormulario {
         formularioOtrasRevistasService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioPonencia")
@@ -357,7 +357,7 @@ public class ControladorFormulario {
         formularioPonenciaService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioArticulosU")
@@ -367,7 +367,7 @@ public class ControladorFormulario {
         formularioArticulosUService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioAudiovisuales")
@@ -377,7 +377,7 @@ public class ControladorFormulario {
         formularioAudiovisualService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioLibroEnsayo")
@@ -387,7 +387,7 @@ public class ControladorFormulario {
         formularioLibroEnsayoService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioLibroInvestigacion")
@@ -397,7 +397,7 @@ public class ControladorFormulario {
         formularioLibroInvestigacionService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioLibroTexto")
@@ -407,7 +407,7 @@ public class ControladorFormulario {
         formularioLibroTextoService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioObraArtistica")
@@ -417,7 +417,7 @@ public class ControladorFormulario {
         formularioObraArtisticaService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioPatente")
@@ -427,7 +427,7 @@ public class ControladorFormulario {
         formularioPatenteService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioProduccionTecnica")
@@ -437,7 +437,7 @@ public class ControladorFormulario {
         formularioProduccionTecnicaService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioSoftware")
@@ -447,7 +447,7 @@ public class ControladorFormulario {
         formularioSoftwareService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @PostMapping("/guardarFormularioPremio")
@@ -457,7 +457,7 @@ public class ControladorFormulario {
         formularioPremioService.guardar(formularioEspecifico);
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_MODIFICA_FORMULARIO);
-        return "redirect:/observarSolicitd/" + solicitud.getIdSolicitud();
+        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 
     @GetMapping("/crearFormularioArticulos/{idPersona}")

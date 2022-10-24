@@ -13,6 +13,7 @@
         <section th:replace="layout/plantillaSolicitud :: cambiarPuntaje" sec:authorize="hasRole('ROLE_ADMIN')"></section>
         <section th:replace="layout/plantillaSolicitud :: cambiarEstado" sec:authorize="hasRole('ROLE_ADMIN')"></section>
         <section th:replace="layout/plantillaNotificaciones :: observarNotificaciones"></section>
+        <section th:replace="layout/plantillaNotificaciones :: agregarNotificacion"></section>
         <footer th:replace="layout/plantilla :: footer"></footer>
     </body>
 </html>
