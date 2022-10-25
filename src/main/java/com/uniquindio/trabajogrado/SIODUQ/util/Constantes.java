@@ -75,4 +75,7 @@ public class Constantes {
     static public final String CORREO_CUERPO_MODIFICACION = "Se notifica la modificacion de la solicitud en estado y/o puntaje. Verificar la informacion";
     static public final String CORREO_CUERPO_MODIFICA_FORMULARIO = "Se notifica cambios en el formulario de la solicitud. Verificar la informacion";
     static public final String CORREO_CUERPO_CREACION_PROPIA = "Se notifica la creacion de una notificacion nueva, el mensaje es el siguiente:\n";
+
+    static public final String ROLE_ADMIN = "ROLE_ADMIN";
+    static public final String ROLE_USER = "ROLE_USER";
 }

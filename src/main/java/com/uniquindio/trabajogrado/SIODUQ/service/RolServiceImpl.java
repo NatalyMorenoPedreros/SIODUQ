@@ -31,5 +31,10 @@ public class RolServiceImpl implements RolService{
     public Rol encontrarRol(Rol rol) {
         return rolDao.findById(rol.getIdRol()).orElse(null);
     }
+
+    @Override
+    public Rol encontrarRolPorNombre(String nombre) {
+        return rolDao.findByNombre(nombre);
+    }
     
 }

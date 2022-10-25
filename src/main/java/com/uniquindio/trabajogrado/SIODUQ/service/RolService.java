@@ -11,4 +11,6 @@ public interface RolService {
     public void eliminar(Rol rol);
     
     public Rol encontrarRol(Rol rol);
+    
+    public Rol encontrarRolPorNombre(String nombre);
 }

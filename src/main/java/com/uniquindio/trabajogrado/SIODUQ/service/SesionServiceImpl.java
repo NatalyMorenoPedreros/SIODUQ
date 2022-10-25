@@ -14,7 +14,7 @@ public class SesionServiceImpl implements SesionService{
 
     @Override
     public void guardar(Sesion sesion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        sesionDao.save(sesion);
     }
 
     @Override
