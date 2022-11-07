@@ -1,7 +1,7 @@
 package com.uniquindio.trabajogrado.SIODUQ.service;
 
+import com.uniquindio.trabajogrado.SIODUQ.model.Persona;
 import com.uniquindio.trabajogrado.SIODUQ.model.Sesion;
-import java.util.List;
 
 public interface SesionService {
     
@@ -10,4 +10,6 @@ public interface SesionService {
     public void eliminar(Sesion sesion);
     
     public Sesion buscarPorUsername(String username);
+    
+    public boolean construirSesion(Persona persona, Sesion sesion, String rol);
 }

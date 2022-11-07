@@ -2,7 +2,6 @@ package com.uniquindio.trabajogrado.SIODUQ.web;
 
 import com.uniquindio.trabajogrado.SIODUQ.model.Persona;
 import com.uniquindio.trabajogrado.SIODUQ.model.Programa;
-import com.uniquindio.trabajogrado.SIODUQ.model.Rol;
 import com.uniquindio.trabajogrado.SIODUQ.model.Sesion;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoIdentificacion;
 import com.uniquindio.trabajogrado.SIODUQ.service.PersonaService;
@@ -12,7 +11,6 @@ import com.uniquindio.trabajogrado.SIODUQ.service.SesionService;
 import com.uniquindio.trabajogrado.SIODUQ.service.SolicitudService;
 import com.uniquindio.trabajogrado.SIODUQ.service.TipoIdentificacionService;
 import com.uniquindio.trabajogrado.SIODUQ.util.Constantes;
-import com.uniquindio.trabajogrado.SIODUQ.util.EncriptarPassword;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,20 +83,6 @@ public class ControladorInicio {
 
     @PostMapping("/crearNuevaSesion")
     public String crearNuevaSesion(@Validated Persona persona, @Validated Sesion sesion, Errors errores) {
-
-        if (sesionService.buscarPorUsername(persona.getIdentificacion()) == null) {
-            personaService.guardar(persona);
-            Rol rol = rolService.encontrarRolPorNombre(Constantes.ROLE_USER);
-
-            sesion.setPersona(persona);
-            sesion.setUsername(persona.getIdentificacion());
-            sesion.setPassword(EncriptarPassword.encriptarPassword(sesion.getPassword()));
-            sesion.setRol(rol);
-            
-            sesionService.guardar(sesion);
-            return "redirect:/";
-        }
-
-        return "/errores/errorCreacion";
+        return (sesionService.construirSesion(persona, sesion, Constantes.ROLE_USER))?"redirect:/":"/errores/errorCreacion";
     }
 }

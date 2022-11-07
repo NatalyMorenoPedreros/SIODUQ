@@ -5,8 +5,8 @@ public class Constantes {
     static public final String FBARTICULO = "VIGAGH04F61";
     static public final String FBDIRECCIONT = "VIGAGH04F59";
     static public final String FBESTUDIOPOS = "VIGAGH04F83";
-    static public final String FBOTRAREVIS = "VIGAGH04F64";
     static public final String FBPONENCIA = "VIGAGH04F60";
+    static public final String FPAOTRAREVIS = "VIGAGH04F64";
     static public final String FPAARTICULO = "VIGAGH04F55";
     static public final String FPAAUDIOV = "VIGAGH04F56";
     static public final String FPALIBROE = "VIGAGH04F91";

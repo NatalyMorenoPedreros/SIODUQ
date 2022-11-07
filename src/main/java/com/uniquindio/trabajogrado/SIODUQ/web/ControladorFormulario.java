@@ -179,7 +179,7 @@ public class ControladorFormulario {
                 ruta = Constantes.FBESTUDIOPOSRUTA;
 
                 break;
-            case Constantes.FBOTRAREVIS:
+            case Constantes.FPAOTRAREVIS:
                 FORMPAOtrasRevistas formularioOtraRevista = formularioOtrasRevistasService.encontrarFORMBONOtrasRevistas(formulario.getIdFormulario());
                 tipoDifusiones = tipoDifusionService.listarTipoDifusiones();
                 tipoPublicaciones = tipoPublicacionService.listarTipoPublicaciones();
