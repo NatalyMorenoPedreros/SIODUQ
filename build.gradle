@@ -33,6 +33,7 @@ dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
         implementation 'org.springframework.boot:spring-boot-starter-mail'
+        implementation 'com.google.firebase:firebase-admin:7.1.0'
 }
 
 tasks.named('test') {

@@ -2,11 +2,17 @@ package com.uniquindio.trabajogrado.SIODUQ.service;
 
 import com.uniquindio.trabajogrado.SIODUQ.dao.IDocumentoDao;
 import com.uniquindio.trabajogrado.SIODUQ.model.Documento;
+import com.uniquindio.trabajogrado.SIODUQ.model.Solicitud;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
+@Slf4j
 public class DocumentoServiceImpl implements DocumentoService{
 
     @Autowired
@@ -32,4 +38,16 @@ public class DocumentoServiceImpl implements DocumentoService{
         return documentoDao.findById(documento.getIdDocumento()).orElse(null);
     }
 
+    @Override
+    public void persistirDocumento(Solicitud solicitud, MultipartFile archivo){
+        AlmacenamientoFirebase almacenamiento = new AlmacenamientoFirebase();
+        
+        try {
+            almacenamiento.cargarArchivo(archivo);
+            
+        } catch (IOException ex) {
+            log.error("Sucede un error con la carga del documento");
+        }
+        
+    }
 }

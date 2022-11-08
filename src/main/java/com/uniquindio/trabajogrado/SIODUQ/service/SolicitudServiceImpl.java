@@ -55,7 +55,7 @@ public class SolicitudServiceImpl implements SolicitudService {
     }
 
     @Override
-    public void construirSolicitud(Persona persona, String estado, Formulario formulario, String puntaje, String tipoSolicitud, String mensajeCorreo) {
+    public Solicitud construirSolicitud(Persona persona, String estado, Formulario formulario, String puntaje, String tipoSolicitud, String mensajeCorreo) {
         Timestamp fechaCreacion = new Timestamp(System.currentTimeMillis());
 
         Solicitud solicitud = new Solicitud();
@@ -68,6 +68,7 @@ public class SolicitudServiceImpl implements SolicitudService {
         solicitud.setFechaCreacion(fechaCreacion);
         guardar(solicitud, mensajeCorreo);
         
+        return solicitud;
     }
 
     @Override

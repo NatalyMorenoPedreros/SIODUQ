@@ -128,6 +128,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1289,7 +1290,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioDireccionTesis" th:object="${persona}">
-            <form th:action="@{/agregarFormularioDireccionTesis/} + ${persona.idPersona}" method="POST" class="was-validated">    
+            <form th:action="@{/agregarFormularioDireccionTesis/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data">    
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1332,6 +1333,12 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="container">
+                    <table>
+                        <tr><td>Cargar comprimido:</td><td><input type="file" name="file" /></td></tr>
+                        <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                    </table>
                 </div>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>

@@ -28,6 +28,7 @@ import com.uniquindio.trabajogrado.SIODUQ.model.TipoPublicacion;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoReconocimiento;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoRevista;
 import com.uniquindio.trabajogrado.SIODUQ.model.TipoTesis;
+import com.uniquindio.trabajogrado.SIODUQ.service.DocumentoService;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMBONArticulosUService;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMBONDireccionTesisService;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMBONPonenciaService;
@@ -68,6 +69,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMPAOtrasRevistasService;
 import com.uniquindio.trabajogrado.SIODUQ.service.FORMPAPremioService;
 import com.uniquindio.trabajogrado.SIODUQ.service.NotificacionService;
+import java.io.File;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @Slf4j
@@ -131,6 +135,8 @@ public class ControladorFormulario {
     private TipoPublicacionService tipoPublicacionService;
     @Autowired
     private NotificacionService notificacionService;
+    @Autowired
+    private DocumentoService documentoService;
 
     @GetMapping("/observarFormulario/{idFormulario}")
     public String buscarFormulario(Formulario formulario, Model model) {
@@ -657,7 +663,7 @@ public class ControladorFormulario {
     }
 
     @PostMapping("/agregarFormularioDireccionTesis/{idPersona}")
-    public String agregarFormularioDireccionTesis(@Validated Formulario formulario, @Validated FORMBONDireccionTesis formularioEspecifico, Persona persona) {
+    public String agregarFormularioDireccionTesis(@Validated Formulario formulario, @Validated FORMBONDireccionTesis formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -666,8 +672,9 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioDireccionTesisService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_DIRECCION_TESIS, Constantes.BONIFICACION,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_DIRECCION_TESIS, Constantes.BONIFICACION,Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        System.out.println("com.uniquindio.trabajogrado.SIODUQ.web.ControladorFormulario.agregarFormularioDireccionTesis(): " + archivo != null);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
