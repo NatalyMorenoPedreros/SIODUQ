@@ -128,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -252,6 +252,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -291,6 +292,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -376,6 +378,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -427,6 +430,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -486,6 +490,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -570,6 +575,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -650,6 +656,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -758,6 +765,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -868,6 +876,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -929,6 +938,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -990,6 +1000,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1036,6 +1047,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1087,6 +1099,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1148,10 +1161,36 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
+        <section th:fragment="cargarArchivoComprimido2">
+            <div class="container">
+                <table>
+                    <tr>
+                        <td>Cargar comprimido:</td>
+                        <td>
+                            <input type="file" name="file" class="fa fa-cloud-upload" accept=".zip,.rar"/>
+                        </td>
+                    </tr>
+                </table>
+                ACA
+            </div>
+        </section>
         <!-- CREACION DE NUEVOS FORMULARIOS -->
+        <section th:fragment="cargarArchivoComprimido">
+            <div class="container">
+                <table>
+                    <tr>
+                        <td>Cargar comprimido:</td>
+                        <td>
+                            <input type="file" name="file" class="fa fa-cloud-upload" required="true" accept=".zip,.rar"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
         <section th:fragment="crearFormularioPrincipal">
             <div id="details" th:object="${formulario}">
                 <div class="container">
@@ -1286,6 +1325,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1334,12 +1374,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container">
-                    <table>
-                        <tr><td>Cargar comprimido:</td><td><input type="file" name="file" /></td></tr>
-                        <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-                    </table>
-                </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1388,6 +1423,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1432,6 +1468,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1488,6 +1525,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1582,6 +1620,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1656,6 +1695,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1727,6 +1767,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1781,6 +1822,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1857,6 +1899,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1913,6 +1956,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1969,6 +2013,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -2011,6 +2056,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -2107,6 +2153,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -2145,6 +2192,7 @@
                         </div>
                     </div>
                 </div>
+                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>

@@ -5,7 +5,7 @@ import com.uniquindio.trabajogrado.SIODUQ.model.Persona;
 import com.uniquindio.trabajogrado.SIODUQ.model.Rol;
 import com.uniquindio.trabajogrado.SIODUQ.model.Sesion;
 import com.uniquindio.trabajogrado.SIODUQ.util.Constantes;
-import com.uniquindio.trabajogrado.SIODUQ.util.EncriptarPassword;
+import com.uniquindio.trabajogrado.SIODUQ.logica.EncriptarPassword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

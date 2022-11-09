@@ -1,4 +1,4 @@
-package com.uniquindio.trabajogrado.SIODUQ.util;
+package com.uniquindio.trabajogrado.SIODUQ.logica;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

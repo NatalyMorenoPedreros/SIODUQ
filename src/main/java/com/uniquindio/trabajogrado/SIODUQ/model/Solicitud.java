@@ -34,10 +34,6 @@ public class Solicitud implements Serializable{
     @JoinColumn(name = "tiposolicitud")
     TipoSolicitud tipoSolicitud;
     
-    @OneToMany
-    @JoinColumn(name = "solicitud")
-    List<Documento> documentos;
-    
     @Column(name = "fechacreacion")
     private Timestamp fechaCreacion;
     @Column(name = "codigo")

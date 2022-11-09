@@ -78,4 +78,22 @@ public class Constantes {
 
     static public final String ROLE_ADMIN = "ROLE_ADMIN";
     static public final String ROLE_USER = "ROLE_USER";
+
+    // Variables para carga de archivos
+    static public final String FIREBASE_BUCKET_NAME = "FIREBASE_BUCKET_NAME";
+    static public final String FIREBASE_PROJECT_ID = "FIREBASE_PROJECT_ID";
+    static public final String FIREBASE_TYPE = "FIREBASE_TYPE";
+    static public final String FIREBASE_PRIVATE_KEY_ID = "FIREBASE_PRIVATE_KEY_ID";
+    static public final String FIREBASE_PRIVATE_KEY = "FIREBASE_PRIVATE_KEY";
+    static public final String FIREBASE_CLIENT_EMAIL = "FIREBASE_CLIENT_EMAIL";
+    static public final String FIREBASE_CLIENT_ID = "FIREBASE_CLIENT_ID";
+    static public final String FIREBASE_AUTH_URI = "FIREBASE_AUTH_URI";
+    static public final String FIREBASE_TOKEN_URI = "FIREBASE_TOKEN_URI";
+    static public final String FIREBASE_AUTH_PROVIDER_X509_CERT_URL = "FIREBASE_AUTH_PROVIDER_X509_CERT_URL";
+    static public final String FIREBASE_CLIENT_X509_CERT_URL = "FIREBASE_CLIENT_X509_CERT_URL";
+
+    static public final String URL_FIREBASE_CREDENCIALES = "src\\main\\resources\\application.properties";
+    static public final String URL_FIREBASE_DESCARGA = "https://firebasestorage.googleapis.com/v0/b/";
+    static public final String URL_FIREBASE_DESCARGA_2 = "/o/";
+    static public final String URL_FIREBASE_DESCARGA_3 = "?alt=media&token=";
 }

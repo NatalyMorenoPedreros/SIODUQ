@@ -1,6 +1,7 @@
 package com.uniquindio.trabajogrado.SIODUQ.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import javax.persistence.*;
 import lombok.Data;
 
@@ -16,10 +17,14 @@ public class Documento implements Serializable{
     @Column(name = "id_documento")
     private Integer idDocumento;
     
+    @ManyToOne
+    @JoinColumn(name = "solicitud")
+    Solicitud solicitud;
+    
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "urldocumento")
     private String direccionURL;
     @Column(name = "fechacarga")
-    private String fechaCarga;
+    private Timestamp fechaCarga;
 }

@@ -61,14 +61,15 @@ public class AlmacenamientoFirebaseTest {
     @Test
     public void testDescargarArchivo() throws Exception {
         System.out.println("descargarArchivo");
-        String nombreArchivo = "1667847540899-test.txt";
+        String nombreArchivo = "test.txt";
         AlmacenamientoFirebase instance = new AlmacenamientoFirebase();
         instance.inicializarFirebase();
-        ResponseEntity<Object> expResult = new ResponseEntity<Object>(HttpStatus.OK);
+        ResponseEntity expResult = new ResponseEntity(HttpStatus.OK);
        
-        ResponseEntity<Object> result = instance.descargarArchivo(nombreArchivo);
+        ResponseEntity result = instance.descargarArchivo(nombreArchivo);
+        System.out.println(result.getBody());
         assertEquals(expResult.getStatusCode(), result.getStatusCode());
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

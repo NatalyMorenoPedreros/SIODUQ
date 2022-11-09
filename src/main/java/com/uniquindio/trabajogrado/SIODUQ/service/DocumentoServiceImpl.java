@@ -3,8 +3,8 @@ package com.uniquindio.trabajogrado.SIODUQ.service;
 import com.uniquindio.trabajogrado.SIODUQ.dao.IDocumentoDao;
 import com.uniquindio.trabajogrado.SIODUQ.model.Documento;
 import com.uniquindio.trabajogrado.SIODUQ.model.Solicitud;
-import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,15 @@ public class DocumentoServiceImpl implements DocumentoService{
         AlmacenamientoFirebase almacenamiento = new AlmacenamientoFirebase();
         
         try {
-            almacenamiento.cargarArchivo(archivo);
+            String[] variables = almacenamiento.cargarArchivo(archivo);
+            
+            Documento documento = new Documento();
+            documento.setSolicitud(solicitud);
+            documento.setDireccionURL(variables[0]);
+            documento.setNombre(variables[1]);
+            documento.setFechaCarga(new Timestamp(System.currentTimeMillis()));
+            
+            guardar(documento);
             
         } catch (IOException ex) {
             log.error("Sucede un error con la carga del documento");
