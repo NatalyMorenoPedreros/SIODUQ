@@ -13,11 +13,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 @Slf4j
-public class DocumentoServiceImpl implements DocumentoService{
+public class DocumentoServiceImpl implements DocumentoService {
 
     @Autowired
     private IDocumentoDao documentoDao;
-    
+
     @Override
     public List<Documento> listarDocumentos() {
         return (List<Documento>) documentoDao.findAll();
@@ -39,23 +39,47 @@ public class DocumentoServiceImpl implements DocumentoService{
     }
 
     @Override
-    public void persistirDocumento(Solicitud solicitud, MultipartFile archivo){
+    public void persistirDocumento(Solicitud solicitud, MultipartFile archivo) {
         AlmacenamientoFirebase almacenamiento = new AlmacenamientoFirebase();
-        
+
         try {
-            String[] variables = almacenamiento.cargarArchivo(archivo);
-            
+            String[] variables = almacenamiento.cargarArchivo(archivo, solicitud.getPersona().getIdentificacion());
+
             Documento documento = new Documento();
             documento.setSolicitud(solicitud);
             documento.setDireccionURL(variables[0]);
             documento.setNombre(variables[1]);
             documento.setFechaCarga(new Timestamp(System.currentTimeMillis()));
-            
+
             guardar(documento);
-            
+
         } catch (IOException ex) {
             log.error("Sucede un error con la carga del documento");
+            log.error(ex.getMessage());
         }
-        
+    }
+
+    @Override
+    public Documento obtenerDocumentoPorSolicitud(Solicitud solicitud) {
+        return documentoDao.findBySolicitud(solicitud);
+    }
+
+    @Override
+    public void actualizarDocumento(MultipartFile archivo, Documento documento) {
+        AlmacenamientoFirebase almacenamiento = new AlmacenamientoFirebase();
+
+        try {
+            String[] variables = almacenamiento.cargarArchivo(archivo, documento.getSolicitud().getPersona().getIdentificacion());
+
+            documento.setDireccionURL(variables[0]);
+            documento.setNombre(variables[1]);
+            documento.setFechaCarga(new Timestamp(System.currentTimeMillis()));
+
+            guardar(documento);
+
+        } catch (IOException ex) {
+            log.error("Sucede un error con la actualizacion del documento");
+            log.error(ex.getMessage());
+        }
     }
 }

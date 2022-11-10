@@ -75,6 +75,4 @@ public class SolicitudServiceImpl implements SolicitudService {
     public long contarSolicitudesPorPersona(Persona persona) {
         return solicitudDao.countByPersona(persona);
     }
-
-    
 }

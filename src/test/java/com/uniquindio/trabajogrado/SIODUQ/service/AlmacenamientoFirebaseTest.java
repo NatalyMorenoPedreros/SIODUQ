@@ -49,7 +49,7 @@ public class AlmacenamientoFirebaseTest {
         AlmacenamientoFirebase instance = new AlmacenamientoFirebase();
         instance.inicializarFirebase();
         String[] expResult = {"urlArchivo", "test.txt"};
-        String[] result = instance.cargarArchivo(archivo);
+        String[] result = instance.cargarArchivo(archivo, "prueba");
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

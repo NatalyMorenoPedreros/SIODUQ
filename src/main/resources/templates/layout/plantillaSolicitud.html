@@ -179,6 +179,56 @@
                 </div>
             </div>
         </section>
+        <section th:fragment="actualizarDocumento">
+            <form th:action="@{/actualizarDocumento/} + ${documento.idDocumento}" th:object="${documento}"
+                  method="POST" class="was-validated" enctype="multipart/form-data">
+                <input type="hidden" name="idDocumento" th:field="*{idDocumento}"/>
+                <input type="hidden" name="solicitud" th:field="*{solicitud}"/>
+                <input type="hidden" name="nombre" th:field="*{nombre}"/>
+                <input type="hidden" name="direccionURL" th:field="*{direccionURL}"/>
+                <input type="hidden" name="fechaCarga" th:field="*{fechaCarga}"/>
+                <div id="details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>[[#{accion.actualizar-documento}]]</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="nombre">[[#{documento.titulo}]]</label>
+                                            <span><a th:href="${documento.direccionURL}" target="_blank">[[${documento.nombre}]]</a></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <section th:replace="layout/plantillaSolicitud :: cargarArchivoComprimido" sec:authorize="hasRole('ROLE_USER')"></section>
+                                        </div>
+                                        <div class="form-group">
+                                            <section th:replace="layout/botonesSolicitud :: botonActualizarDocumento" sec:authorize="hasRole('ROLE_USER')"></section>
+                                        </div>
+                                        <div class="text-center p-2" th:if="${documento == null}">
+                                            <span th:text="#{documento.vacio}">Lista vacía</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section th:fragment="cargarArchivoComprimido">
+            <div class="container">
+                <table>
+                    <tr>
+                        <td>Cargar comprimido:</td>
+                        <td>
+                            <input type="file" name="file" class="fa fa-cloud-upload" required="true" accept=".zip,.rar"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
     </body>
 </html>
 

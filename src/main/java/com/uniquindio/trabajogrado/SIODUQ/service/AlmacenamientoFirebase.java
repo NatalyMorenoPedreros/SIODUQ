@@ -62,17 +62,17 @@ public class AlmacenamientoFirebase {
         return archivoConvertido;
     }
 
-    private String generarNombreArchivo(MultipartFile archivo) {
-        return Objects.requireNonNull(archivo.getOriginalFilename()).replace(" ", "_");
+    private String generarNombreArchivo(MultipartFile archivo, String identificacionUsuario) {
+        return Objects.requireNonNull(identificacionUsuario + archivo.getOriginalFilename()).replace(" ", "_");
     }
 
-    public String[] cargarArchivo(MultipartFile archivo) throws IOException {
+    public String[] cargarArchivo(MultipartFile archivo, String identificacionUsuario) throws IOException {
         inicializarFirebase();
 
         File archivoCargar = convertirMultipartesArchivo(archivo);
-        String nombreArchivo = generarNombreArchivo(archivo);
+        String nombreArchivo = generarNombreArchivo(archivo, identificacionUsuario);
         String uuid = UUID.randomUUID().toString();
-        
+
         Storage almacenamiento = opcionesAlmacenamiento.getService();
         Map<String, String> map = new HashMap<>();
         map.put("firebaseStorageDownloadTokens", uuid);
@@ -91,16 +91,11 @@ public class AlmacenamientoFirebase {
         inicializarFirebase();
         Storage almacenamiento = opcionesAlmacenamiento.getService();
         String carpetaDescarga = "C:\\Users\\natal\\Descargas\\";
-        
+
         Blob blob = almacenamiento.get(BlobId.of(nombreCanal, nombreArchivo));
         blob.downloadTo(Paths.get(carpetaDescarga));
-        //ReadChannel lector = blob.reader();
-        //InputStream flujoEntrada = Channels.newInputStream(lector);
 
-        //byte[] contenido = IOUtils.deserialize(flujoEntrada);
         log.info("Descarga del archivo EXITOSA");
-
-        //final ByteArrayResource arregloRecursos = new ByteArrayResource(contenido);
 
         return new ResponseEntity(HttpStatus.OK);
     }
@@ -110,7 +105,7 @@ public class AlmacenamientoFirebase {
 
         Properties propiedades = new Properties();
         propiedades.load(new FileReader(Constantes.URL_FIREBASE_CREDENCIALES));
-        
+
         nombreCanal = propiedades.getProperty(Constantes.FIREBASE_BUCKET_NAME);
         idProyecto = propiedades.getProperty(Constantes.FIREBASE_PROJECT_ID);
 

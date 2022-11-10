@@ -20,6 +20,19 @@
                 </div>
             </div>
         </section>
+        <section th:fragment="botonActualizarDocumento">
+            <div id="actions" class="py-4 mb-4 bg-light">
+                <div class="container">
+                    <div class="row"> 
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-success btn-block">
+                                <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section th:fragment="botonAgregarSolicitudPA" th:object="${persona}">
             <div id="actions" class="py-4 mb-2">
                 <div class="container">

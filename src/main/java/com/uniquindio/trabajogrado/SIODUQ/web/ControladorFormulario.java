@@ -648,7 +648,7 @@ public class ControladorFormulario {
     }
 
     @PostMapping("/agregarFormularioArticulos/{idPersona}")
-    public String agregarFormularioArticulos(@Validated Formulario formulario, @Validated FORMPAArticulos formularioEspecifico, Persona persona) {
+    public String agregarFormularioArticulos(@Validated Formulario formulario, @Validated FORMPAArticulos formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -657,7 +657,8 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioArticulosService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Utilidades.calcularPuntajeArticulos(formularioEspecifico.getCategoriaIndexada()), Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Utilidades.calcularPuntajeArticulos(formularioEspecifico.getCategoriaIndexada()), Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
 
         return "redirect:/";
     }
@@ -672,14 +673,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioDireccionTesisService.guardar(formularioEspecifico);
 
-        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_DIRECCION_TESIS, Constantes.BONIFICACION,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-        System.out.println("com.uniquindio.trabajogrado.SIODUQ.web.ControladorFormulario.agregarFormularioDireccionTesis(): " + archivo != null);
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_DIRECCION_TESIS, Constantes.BONIFICACION, Constantes.CORREO_CUERPO_CREACION_NUEVA);
         documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioSoftware/{idPersona}")
-    public String agregarFormularioSoftware(@Validated Formulario formulario, @Validated FORMPASoftware formularioEspecifico, Persona persona) {
+    public String agregarFormularioSoftware(@Validated Formulario formulario, @Validated FORMPASoftware formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -688,13 +688,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioSoftwareService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "0", Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "0", Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioProduccionTecnica/{idPersona}")
-    public String agregarFormularioProduccionTecnica(@Validated Formulario formulario, @Validated FORMPAProduccionTecnica formularioEspecifico, Persona persona) {
+    public String agregarFormularioProduccionTecnica(@Validated Formulario formulario, @Validated FORMPAProduccionTecnica formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -703,13 +703,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioProduccionTecnicaService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "0", Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, "0", Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioPatente/{idPersona}")
-    public String agregarFormularioPatente(@Validated Formulario formulario, @Validated FORMPAPatente formularioEspecifico, Persona persona) {
+    public String agregarFormularioPatente(@Validated Formulario formulario, @Validated FORMPAPatente formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -718,13 +718,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioPatenteService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_PATENTE, Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_PATENTE, Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioObraArtistica/{idPersona}")
-    public String agregarFormularioObraArtistica(@Validated Formulario formulario, @Validated FORMPAObraArtistica formularioEspecifico, Persona persona) {
+    public String agregarFormularioObraArtistica(@Validated Formulario formulario, @Validated FORMPAObraArtistica formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -733,13 +733,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioObraArtisticaService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_OBRA_ARTISTICA, Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_OBRA_ARTISTICA, Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioLibroInvestigacion/{idPersona}")
-    public String agregarFormularioLibroInvestigacion(@Validated Formulario formulario, @Validated FORMPALibroInvestigacion formularioEspecifico, Persona persona) {
+    public String agregarFormularioLibroInvestigacion(@Validated Formulario formulario, @Validated FORMPALibroInvestigacion formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -748,13 +748,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioLibroInvestigacionService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_LIBRO_INVESTIGACION, Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_LIBRO_INVESTIGACION, Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioLibroTexto/{idPersona}")
-    public String agregarFormularioLibroTexto(@Validated Formulario formulario, @Validated FORMPALibroTexto formularioEspecifico, Persona persona) {
+    public String agregarFormularioLibroTexto(@Validated Formulario formulario, @Validated FORMPALibroTexto formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -763,13 +763,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioLibroTextoService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_LIBRO_TEXTO, Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_LIBRO_TEXTO, Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioLibroEnsayo/{idPersona}")
-    public String agregarFormularioLibroEnsayo(@Validated Formulario formulario, @Validated FORMPALibroEnsayo formularioEspecifico, Persona persona) {
+    public String agregarFormularioLibroEnsayo(@Validated Formulario formulario, @Validated FORMPALibroEnsayo formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -778,13 +778,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioLibroEnsayoService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_LIBRO_ENSAYO, Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_LIBRO_ENSAYO, Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioAudioVisuales/{idPersona}")
-    public String agregarFormularioAudioVisuales(@Validated Formulario formulario, @Validated FORMPAAudiovisuales formularioEspecifico, Persona persona) {
+    public String agregarFormularioAudioVisuales(@Validated Formulario formulario, @Validated FORMPAAudiovisuales formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -793,13 +793,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioAudiovisualService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Utilidades.calcularPuntajeAudiovisual(formularioEspecifico.getTipoDifusion().getNombre()), Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Utilidades.calcularPuntajeAudiovisual(formularioEspecifico.getTipoDifusion().getNombre()), Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioPremio/{idPersona}")
-    public String agregarFormularioPremio(@Validated Formulario formulario, @Validated FORMPAPremio formularioEspecifico, Persona persona) {
+    public String agregarFormularioPremio(@Validated Formulario formulario, @Validated FORMPAPremio formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -808,13 +808,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioPremioService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_PREMIO, Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_PREMIO, Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioOtrasRevistas/{idPersona}")
-    public String agregarFormularioOtrasRevistas(@Validated Formulario formulario, @Validated FORMPAOtrasRevistas formularioEspecifico, Persona persona) {
+    public String agregarFormularioOtrasRevistas(@Validated Formulario formulario, @Validated FORMPAOtrasRevistas formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -823,13 +823,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioOtrasRevistasService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_OTRAS_REVISTAS, Constantes.PRODUCTIVIDAD_ACADEMICA,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_OTRAS_REVISTAS, Constantes.PRODUCTIVIDAD_ACADEMICA, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioArticulosU/{idPersona}")
-    public String agregarFormularioArticulosU(@Validated Formulario formulario, @Validated FORMBONArticulosU formularioEspecifico, Persona persona) {
+    public String agregarFormularioArticulosU(@Validated Formulario formulario, @Validated FORMBONArticulosU formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -838,13 +838,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioArticulosUService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_ARTICULOS_U, Constantes.BONIFICACION,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_ARTICULOS_U, Constantes.BONIFICACION, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioPosdoctoral/{idPersona}")
-    public String agregarFormularioPosdoctoral(@Validated Formulario formulario, @Validated FORMBONEstudioPosdoctoral formularioEspecifico, Persona persona) {
+    public String agregarFormularioPosdoctoral(@Validated Formulario formulario, @Validated FORMBONEstudioPosdoctoral formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -853,13 +853,13 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioPosdoctoralService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_POSDOCTORAL, Constantes.BONIFICACION,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Constantes.PUNTAJE_POSDOCTORAL, Constantes.BONIFICACION, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 
     @PostMapping("/agregarFormularioPonencia/{idPersona}")
-    public String agregarFormularioPonencia(@Validated Formulario formulario, @Validated FORMBONPonencia formularioEspecifico, Persona persona) {
+    public String agregarFormularioPonencia(@Validated Formulario formulario, @Validated FORMBONPonencia formularioEspecifico, Persona persona, @RequestParam("file") MultipartFile archivo) {
 
         persona = personaService.encontrarPersona(persona);
 
@@ -868,8 +868,8 @@ public class ControladorFormulario {
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioPonenciaService.guardar(formularioEspecifico);
 
-        solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Utilidades.calcularPuntajePonencia(formularioEspecifico.getTipoDifusion().getNombre()), Constantes.BONIFICACION,Constantes.CORREO_CUERPO_CREACION_NUEVA);
-
+        Solicitud solicitud = solicitudService.construirSolicitud(persona, Constantes.NUEVA, formulario, Utilidades.calcularPuntajePonencia(formularioEspecifico.getTipoDifusion().getNombre()), Constantes.BONIFICACION, Constantes.CORREO_CUERPO_CREACION_NUEVA);
+        documentoService.persistirDocumento(solicitud, archivo);
         return "redirect:/";
     }
 }

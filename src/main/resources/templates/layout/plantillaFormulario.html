@@ -128,7 +128,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -252,7 +251,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -292,7 +290,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -378,7 +375,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -430,7 +426,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -490,7 +485,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -575,7 +569,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -656,7 +649,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -765,7 +757,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -876,7 +867,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -938,7 +928,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1000,7 +989,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1047,7 +1035,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1099,7 +1086,6 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1161,23 +1147,10 @@
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido2"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
-        <section th:fragment="cargarArchivoComprimido2">
-            <div class="container">
-                <table>
-                    <tr>
-                        <td>Cargar comprimido:</td>
-                        <td>
-                            <input type="file" name="file" class="fa fa-cloud-upload" accept=".zip,.rar"/>
-                        </td>
-                    </tr>
-                </table>
-                ACA
-            </div>
-        </section>
+        
         <!-- CREACION DE NUEVOS FORMULARIOS -->
         <section th:fragment="cargarArchivoComprimido">
             <div class="container">
@@ -1223,7 +1196,7 @@
         </section>
 
         <section th:fragment="crearFormularioArticulos" th:object="${persona}">
-            <form th:action="@{/agregarFormularioArticulos/} + ${persona.idPersona}" method="POST" class="was-validated">
+            <form th:action="@{/agregarFormularioArticulos/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data">
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1379,7 +1352,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioSoftware" th:object="${persona}">
-            <form th:action="@{/agregarFormularioSoftware/} + ${persona.idPersona}" method="POST" class="was-validated">    
+            <form th:action="@{/agregarFormularioSoftware/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data">    
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1428,7 +1401,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioProduccionTecnica" th:object="${persona}">
-            <form th:action="@{/agregarFormularioProduccionTecnica/} + ${persona.idPersona}" method="POST" class="was-validated">    
+            <form th:action="@{/agregarFormularioProduccionTecnica/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data">    
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1473,7 +1446,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioPatente" th:object="${persona}">
-            <form th:action="@{/agregarFormularioPatente/} + ${persona.idPersona}" method="POST" class="was-validated">    
+            <form th:action="@{/agregarFormularioPatente/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data">    
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1530,7 +1503,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioObraArtistica" th:object="${persona}">
-            <form th:action="@{/agregarFormularioObraArtistica/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioObraArtistica/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1625,7 +1598,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioLibroInvestigacion" th:object="${persona}">
-            <form th:action="@{/agregarFormularioLibroInvestigacion/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioLibroInvestigacion/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1700,7 +1673,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioLibroTexto" th:object="${persona}">
-            <form th:action="@{/agregarFormularioLibroTexto/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioLibroTexto/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1772,7 +1745,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioLibroEnsayo" th:object="${persona}">
-            <form th:action="@{/agregarFormularioLibroEnsayo/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioLibroEnsayo/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1827,7 +1800,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioAudioVisuales" th:object="${persona}">
-            <form th:action="@{/agregarFormularioAudioVisuales/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioAudioVisuales/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1904,7 +1877,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioPremio" th:object="${persona}">
-            <form th:action="@{/agregarFormularioPremio/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioPremio/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -1961,7 +1934,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioPonencia" th:object="${persona}">
-            <form th:action="@{/agregarFormularioPonencia/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioPonencia/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -2018,7 +1991,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioPosdoctoral" th:object="${persona}">
-            <form th:action="@{/agregarFormularioPosdoctoral/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioPosdoctoral/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -2061,7 +2034,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioOtrasRevistas" th:object="${persona}">
-            <form th:action="@{/agregarFormularioOtrasRevistas/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioOtrasRevistas/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
@@ -2158,7 +2131,7 @@
             </form>
         </section>
         <section th:fragment="crearFormularioArticulosU" th:object="${persona}">
-            <form th:action="@{/agregarFormularioArticulosU/} + ${persona.idPersona}" method="POST" class="was-validated"> 
+            <form th:action="@{/agregarFormularioArticulosU/} + ${persona.idPersona}" method="POST" class="was-validated" enctype="multipart/form-data"> 
                 <section th:replace="layout/plantillaFormulario :: crearFormularioPrincipal"></section>
                 <div id="details" th:object="${formularioEspecifico}">
                     <div class="container">
