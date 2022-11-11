@@ -20,25 +20,25 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                            <label for="valorFecha">[[${solicitud.formulario.codigo}]]</label>
+                                            <label for="codigoform">[[#{solicitud.formulario.codigo}]]: </label>
+                                            <label id="codigoform" for="codigoform">[[${solicitud.formulario.codigo}]]</label>
                                         </div>
                                         <div class="form-group">
-                                            <label for="nombreDocent">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
-                                            <label for="valorNombrePersona">[[${solicitud.formulario.fechaPresentacion}]]</label>
+                                            <label for="fechapresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
+                                            <label id="fechapresentacion" for="fechapresentacion">[[${solicitud.formulario.fechaPresentacion}]]</label>
                                         </div>
                                         <div class="form-group">
-                                            <label for="correoDocente">[[#{solicitud.formulario.nombre-autores}]]: </label>
-                                            <label for="valorCorreoPersona">[[${solicitud.formulario.nombreAutores}]]</label>
+                                            <label for="nombreautores">[[#{solicitud.formulario.nombre-autores}]]: </label>
+                                            <label id="nombreautores" for="nombreautores">[[${solicitud.formulario.nombreAutores}]]</label>
                                         </div>
                                         <div class="form-group">
-                                            <label for="estado">[[#{solicitud.formulario.numero-autores}]]: </label>
-                                            <label for="valorEstado">[[${solicitud.formulario.numeroAutores}]]</label>
+                                            <label for="numeroautores">[[#{solicitud.formulario.numero-autores}]]: </label>
+                                            <label id="numeroautores" for="numeroautores">[[${solicitud.formulario.numeroAutores}]]</label>
                                         </div>
                                         <div class="col-md-2">
                                             <a th:href="@{/observarFormulario/} + ${solicitud.formulario.idFormulario}"
                                                class="btn btn-danger btn-block">
-                                                <i class="fas fa-check"></i> [[#{accion.ver-mas-informacion}]]
+                                                <i class="fas fa-check" id="botonvermasinformacion"></i> [[#{accion.ver-mas-informacion}]]
                                             </a>
                                         </div>
                                     </div>
@@ -62,8 +62,8 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="fechaCreacion">[[#{solicitud.formulario.codigo}]]: </label>
-                                        <label for="valorFecha">[[${formulario.codigo}]]</label>
+                                        <label for="codigo">[[#{solicitud.formulario.codigo}]]: </label>
+                                        <label for="codigo">[[${formulario.codigo}]]</label>
                                     </div>
                                     <div class="form-group">
                                         <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
@@ -1150,7 +1150,7 @@
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
-        
+
         <!-- CREACION DE NUEVOS FORMULARIOS -->
         <section th:fragment="cargarArchivoComprimido">
             <div class="container">
@@ -1158,7 +1158,7 @@
                     <tr>
                         <td>Cargar comprimido:</td>
                         <td>
-                            <input type="file" name="file" class="fa fa-cloud-upload" required="true" accept=".zip,.rar"/>
+                            <input id="cargaarchivo" type="file" name="file" class="fa fa-cloud-upload" required="true" accept=".zip,.rar"/>
                         </td>
                     </tr>
                 </table>
@@ -1174,7 +1174,6 @@
                                     <h4>Informaci&oacute;n formulario</h4>
                                 </div>
                                 <div class="card-body">
-
                                     <div class="form-group">
                                         <label for="fechaPresentacion">[[#{solicitud.formulario.fecha-presentacion}]]: </label>
                                         <input type="text" class="form-control" name="fechaPresentacion" required="true"/>

@@ -83,6 +83,6 @@ public class ControladorInicio {
 
     @PostMapping("/crearNuevaSesion")
     public String crearNuevaSesion(@Validated Persona persona, @Validated Sesion sesion, Errors errores) {
-        return (sesionService.construirSesion(persona, sesion, Constantes.ROLE_USER))?"redirect:/":"/errores/errorCreacion";
+        return (sesionService.construirSesion(persona, sesion, Constantes.ROLE_USER)) ? "redirect:/" : "/errores/errorCreacion";
     }
 }

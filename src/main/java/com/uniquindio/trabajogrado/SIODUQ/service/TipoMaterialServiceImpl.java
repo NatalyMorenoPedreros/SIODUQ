@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TipoMaterialServiceImpl implements TipoMaterialService{
+public class TipoMaterialServiceImpl implements TipoMaterialService {
 
     @Autowired
     private ITipoMaterialDao tipoMaterialDao;
-    
+
     @Override
     public List<TipoMaterial> listarTipoMateriales() {
         return (List<TipoMaterial>) tipoMaterialDao.findAll();
@@ -31,5 +31,5 @@ public class TipoMaterialServiceImpl implements TipoMaterialService{
     public TipoMaterial encontrarTipoMaterial(TipoMaterial tipoMaterial) {
         return tipoMaterialDao.findById(tipoMaterial.getIdTipoMaterial()).orElse(tipoMaterial);
     }
-    
+
 }

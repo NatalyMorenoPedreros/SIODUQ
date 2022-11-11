@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SesionServiceImpl implements SesionService{
+public class SesionServiceImpl implements SesionService {
 
     @Autowired
     private ISesionDao sesionDao;
@@ -26,7 +26,7 @@ public class SesionServiceImpl implements SesionService{
 
     @Override
     public void eliminar(Sesion sesion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        sesionDao.delete(sesion);
     }
 
     @Override
@@ -44,11 +44,11 @@ public class SesionServiceImpl implements SesionService{
             sesion.setUsername(persona.getIdentificacion());
             sesion.setPassword(EncriptarPassword.encriptarPassword(sesion.getPassword()));
             sesion.setRol(rolEncontrado);
-            
+
             guardar(sesion);
             return true;
         }
         return false;
     }
-    
+
 }

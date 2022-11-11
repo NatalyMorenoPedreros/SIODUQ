@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TipoRevistaServiceImpl implements TipoRevistaService{
+public class TipoRevistaServiceImpl implements TipoRevistaService {
 
     @Autowired
     private ITipoRevistaDao tipoRevistaDao;
-    
+
     @Override
     public List<TipoRevista> listarTipoRevistas() {
         return (List<TipoRevista>) tipoRevistaDao.findAll();
@@ -31,5 +31,5 @@ public class TipoRevistaServiceImpl implements TipoRevistaService{
     public TipoRevista encontrarTipoRevista(TipoRevista tipoRevista) {
         return tipoRevistaDao.findById(tipoRevista.getIdTipoRevista()).orElse(null);
     }
-    
+
 }

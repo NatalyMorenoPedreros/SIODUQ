@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RolServiceImpl implements RolService{
+public class RolServiceImpl implements RolService {
 
     @Autowired
     private IRolDao rolDao;
-    
+
     @Override
     public List<Rol> listarRoles() {
         return (List<Rol>) rolDao.findAll();
@@ -36,5 +36,5 @@ public class RolServiceImpl implements RolService{
     public Rol encontrarRolPorNombre(String nombre) {
         return rolDao.findByNombre(nombre);
     }
-    
+
 }

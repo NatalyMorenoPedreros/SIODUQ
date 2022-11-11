@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProgramaServiceImpl implements ProgramaService{
+public class ProgramaServiceImpl implements ProgramaService {
 
     @Autowired
     private IProgramaDao programaDao;
-    
+
     @Override
     public List<Programa> listarProgramas() {
         return (List<Programa>) programaDao.findAll();
@@ -31,6 +31,5 @@ public class ProgramaServiceImpl implements ProgramaService{
     public Programa encontrarPrograma(Programa programa) {
         return programaDao.findById(programa.getIdPrograma()).orElse(programa);
     }
-    
-    
+
 }

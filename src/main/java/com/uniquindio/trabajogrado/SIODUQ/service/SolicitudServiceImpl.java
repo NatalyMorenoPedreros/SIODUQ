@@ -67,7 +67,7 @@ public class SolicitudServiceImpl implements SolicitudService {
         solicitud.setTipoSolicitud(tipoSolicitudService.encontrarTipoPorNombre(tipoSolicitud));
         solicitud.setFechaCreacion(fechaCreacion);
         guardar(solicitud, mensajeCorreo);
-        
+
         return solicitud;
     }
 

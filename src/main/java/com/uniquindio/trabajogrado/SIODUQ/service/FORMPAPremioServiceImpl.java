@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import com.uniquindio.trabajogrado.SIODUQ.dao.IFORMPAPremioDao;
 
 @Service
-public class FORMPAPremioServiceImpl implements FORMPAPremioService{
+public class FORMPAPremioServiceImpl implements FORMPAPremioService {
 
     @Autowired
     private IFORMPAPremioDao formularioDao;
-    
+
     @Override
     public List<FORMPAPremio> listarFORMPAPremios() {
         return (List<FORMPAPremio>) formularioDao.findAll();
@@ -31,5 +31,5 @@ public class FORMPAPremioServiceImpl implements FORMPAPremioService{
     public FORMPAPremio encontrarFORMPAPremio(Integer formulario) {
         return formularioDao.findById(formulario).orElse(null);
     }
-    
+
 }

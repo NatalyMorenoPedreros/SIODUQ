@@ -31,6 +31,4 @@ public class FORMBONArticulosUServiceImpl implements FORMBONArticulosUService{
     public FORMBONArticulosU encontrarFORMBONArticulosU(Integer formulario) {
         return formularioDao.findById(formulario).orElse(null);
     }
-    
-    
 }

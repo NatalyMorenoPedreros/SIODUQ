@@ -31,5 +31,4 @@ public class FORMBONPonenciaServiceImpl implements FORMBONPonenciaService{
     public FORMBONPonencia encontrarFORMBONPonencia(Integer formulario) {
         return formularioDao.findById(formulario).orElse(null);
     }
-    
 }

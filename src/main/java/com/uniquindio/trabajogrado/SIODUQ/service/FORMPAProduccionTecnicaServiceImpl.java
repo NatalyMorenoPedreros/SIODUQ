@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FORMPAProduccionTecnicaServiceImpl implements FORMPAProduccionTecnicaService{
+public class FORMPAProduccionTecnicaServiceImpl implements FORMPAProduccionTecnicaService {
 
     @Autowired
     private IFORMPAProduccionTecnicaDao formularioDao;
-    
+
     @Override
     public List<FORMPAProduccionTecnica> listarFORMPAProduccionTecnicas() {
         return (List<FORMPAProduccionTecnica>) formularioDao.findAll();
@@ -24,12 +24,12 @@ public class FORMPAProduccionTecnicaServiceImpl implements FORMPAProduccionTecni
 
     @Override
     public void eliminar(FORMPAProduccionTecnica formulario) {
-       formularioDao.delete(formulario);
+        formularioDao.delete(formulario);
     }
 
     @Override
     public FORMPAProduccionTecnica encontrarFORMPAProduccionTecnica(Integer formulario) {
         return formularioDao.findById(formulario).orElse(null);
     }
-    
+
 }

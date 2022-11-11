@@ -21,35 +21,35 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="tiposolicitud">[[#{solicitud.tipo-solicitud}]]: </label>
-                                            <label for="valorTipoSolicitud">[[${solicitud.tipoSolicitud.nombre}]]</label>
+                                            <label id="valorTipoSolicitud" for="valorTipoSolicitud">[[${solicitud.tipoSolicitud.nombre}]]</label>
                                         </div>
                                         <div class="form-group">
                                             <label for="codigo">[[#{solicitud.codigo}]]: </label>
-                                            <label for="valorCodigo">[[${solicitud.codigo}]]</label>
+                                            <label id="valorCodigo" for="valorCodigo">[[${solicitud.codigo}]]</label>
                                         </div>
                                         <div class="form-group">
                                             <label for="fechaCreacion">[[#{solicitud.fecha-creacion}]]: </label>
-                                            <label for="valorFecha">[[${solicitud.fechaCreacion}]]</label>
+                                            <label id="valorFecha" for="valorFecha">[[${solicitud.fechaCreacion}]]</label>
                                         </div>
                                         <div class="form-group">
                                             <label for="nombreDocent">[[#{solicitud.nombre-docente}]]: </label>
-                                            <label for="valorNombrePersona">[[${solicitud.persona.nombre}]]</label>
+                                            <label id="valorNombrePersona" for="valorNombrePersona">[[${solicitud.persona.nombre}]]</label>
                                         </div>
                                         <div class="form-group">
                                             <label for="correoDocente">[[#{solicitud.correo-docente}]]: </label>
-                                            <label for="valorCorreoPersona">[[${solicitud.persona.correo}]]</label>
+                                            <label id="valorCorreoPersona" for="valorCorreoPersona">[[${solicitud.persona.correo}]]</label>
                                         </div>
                                         <div class="form-group">
-                                            <label for="correoDocente">[[#{solicitud.celular-docente}]]: </label>
-                                            <label for="valorCorreoPersona">[[${solicitud.persona.celular}]]</label>
+                                            <label for="celularDocente">[[#{solicitud.celular-docente}]]: </label>
+                                            <label id="valorCelularPersona" for="valorCelularPersona">[[${solicitud.persona.celular}]]</label>
                                         </div>
                                         <div class="form-group">
                                             <label for="estado">[[#{solicitud.estado}]]: </label>
-                                            <label for="valorEstado">[[${solicitud.estado.nombre}]]</label>
+                                            <label id="valorEstado" for="valorEstado">[[${solicitud.estado.nombre}]]</label>
                                         </div>
                                         <div class="form-group">
                                             <label for="programa">[[#{solicitud.programa}]]: </label>
-                                            <label for="valorPrograma">[[${solicitud.persona.programa.nombre}]]</label>
+                                            <label id="valorPrograma" for="valorPrograma">[[${solicitud.persona.programa.nombre}]]</label>
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
                                 <h4>[[#{solicitud.titulo-lista}]]</h4>
                             </div>
                             <div th:if="${solicitudes != null and !solicitudes.empty}">
-                                <table class="table table-stryped">
+                                <table class="table table-stryped" id="tablaSolicitudes">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th th:text="#{solicitud.tipo-solicitud}">Tipo solicitud</th>
@@ -152,7 +152,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="solicitud : ${solicitudes}">
+                                        <tr class="table-danger" th:each="solicitud : ${solicitudes}">
                                             <td>[[${solicitud.tipoSolicitud.nombre}]]</td>
                                             <td>[[${solicitud.codigo}]]</td>
                                             <td>[[${solicitud.fechaCreacion}]]</td>
@@ -198,7 +198,7 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="nombre">[[#{documento.titulo}]]</label>
-                                            <span><a th:href="${documento.direccionURL}" target="_blank">[[${documento.nombre}]]</a></span>
+                                            <span><a id="direccionurl" th:href="${documento.direccionURL}" target="_blank">[[${documento.nombre}]]</a></span>
                                         </div>
                                         <div class="form-group">
                                             <section th:replace="layout/plantillaSolicitud :: cargarArchivoComprimido" sec:authorize="hasRole('ROLE_USER')"></section>

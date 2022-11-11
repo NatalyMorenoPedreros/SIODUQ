@@ -31,5 +31,4 @@ public class FORMBONDireccionTesisServiceImpl implements FORMBONDireccionTesisSe
     public FORMBONDireccionTesis encontrarFORMBONDireccionTesis(Integer formulario) {
         return formularioDao.findById(formulario).orElse(null);
     }
-    
 }

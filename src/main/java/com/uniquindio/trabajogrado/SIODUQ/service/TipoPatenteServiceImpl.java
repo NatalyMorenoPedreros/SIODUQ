@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TipoPatenteServiceImpl implements TipoPatenteService{
+public class TipoPatenteServiceImpl implements TipoPatenteService {
 
     @Autowired
     private ITipoPatenteDao tipoPatenteDao;
-    
+
     @Override
     public List<TipoPatente> listarTipoPatentes() {
         return (List<TipoPatente>) tipoPatenteDao.findAll();

@@ -16,26 +16,26 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service("userDetailsService")
 @Slf4j
-public class UsuarioService implements UserDetailsService{
+public class UsuarioService implements UserDetailsService {
 
-    @Autowired ISesionDao sesionDao;
+    @Autowired
+    ISesionDao sesionDao;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Sesion sesion = sesionDao.findByUsername(username);
-        
+
         if (sesion == null) {
             throw new UsernameNotFoundException(username);
         }
-        
+
         var roles = new ArrayList<GrantedAuthority>();
-        
+
         var rol = new SimpleGrantedAuthority(sesion.getRol().getNombre());
         roles.add(rol);
-        
+
         return new User(sesion.getUsername(), sesion.getPassword(), roles);
     }
-   
-    
+
 }

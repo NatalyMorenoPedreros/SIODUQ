@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ValoracionFuenteExternaServiceImpl implements ValoracionFuenteExternaService{
+public class ValoracionFuenteExternaServiceImpl implements ValoracionFuenteExternaService {
 
     @Autowired
     private IValoracionFuenteExternaDao valoracionFuenteExternaDao;
-    
+
     @Override
     @Transactional(readOnly = true)
     public List<ValoracionFuenteExterna> listarValoracionFuenteExternas() {
@@ -34,5 +34,5 @@ public class ValoracionFuenteExternaServiceImpl implements ValoracionFuenteExter
     public ValoracionFuenteExterna encontrarValoracionFuenteExterna(ValoracionFuenteExterna valoracionFuenteExterna) {
         return valoracionFuenteExternaDao.findById(valoracionFuenteExterna.getIdValoracion()).orElse(null);
     }
-    
+
 }

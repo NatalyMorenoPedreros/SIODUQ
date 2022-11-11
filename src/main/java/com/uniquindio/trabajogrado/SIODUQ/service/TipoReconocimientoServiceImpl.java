@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TipoReconocimientoServiceImpl implements TipoReconocimientoService{
+public class TipoReconocimientoServiceImpl implements TipoReconocimientoService {
 
     @Autowired
     private ITipoReconocimientoDao tipoReconocimientoDao;
-    
+
     @Override
     public List<TipoReconocimiento> listarTipoReconocimientos() {
         return (List<TipoReconocimiento>) tipoReconocimientoDao.findAll();

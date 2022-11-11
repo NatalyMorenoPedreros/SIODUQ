@@ -13,14 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NotificacionServiceImpl implements NotificacionService{
+public class NotificacionServiceImpl implements NotificacionService {
 
     @Autowired
     private INotificacionDao notificacionDao;
-    
+
     @Autowired
     private CorreoService correoService;
-    
+
     @Override
     public List<Notificacion> listarNotificaciones() {
         return (List<Notificacion>) notificacionDao.findAll();
@@ -48,25 +48,25 @@ public class NotificacionServiceImpl implements NotificacionService{
 
     @Override
     public void construirNotificacion(Solicitud solicitud, String mensaje) {
-        
+
         Notificacion notificacion = new Notificacion();
-        
+
         mensaje = mensaje + "\n"
                 + "Codigo solicitud: " + solicitud.getCodigo() + "\n"
                 + "Fecha creacion: " + solicitud.getFechaCreacion() + "\n"
                 + "Puntaje: " + solicitud.getPuntajeTentativo() + "\n"
                 + "Estado: " + solicitud.getEstado().getNombre();
-        
+
         notificacion.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
         notificacion.setMensaje(mensaje);
         notificacion.setSolicitud(solicitud);
-        
+
         guardar(notificacion);
-        
+
         enviarCorreos(solicitud.getPersona().getCorreo(), mensaje);
     }
-    
-    public void enviarCorreos(String correoDocente, String mensaje){
+
+    public void enviarCorreos(String correoDocente, String mensaje) {
         List<String> correos = new ArrayList<>();
         correos.add(Constantes.CORREO_ADMINISTRADOR);
         correos.add(correoDocente);

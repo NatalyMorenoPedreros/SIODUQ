@@ -36,5 +36,4 @@ public class EstadoServiceImpl implements EstadoService{
     public Estado encontrarEstadoPorNombre(String nombre) {
         return estadoDao.findByNombre(nombre);
     }
-    
 }

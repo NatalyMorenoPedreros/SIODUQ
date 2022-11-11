@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TipoSolicitudServiceImpl implements TipoSolicitudService{
+public class TipoSolicitudServiceImpl implements TipoSolicitudService {
 
     @Autowired
     private ITipoSolicitudDao tipoSolicitudDao;
-    
+
     @Override
     public List<TipoSolicitud> listarTipoSolicitudes() {
         return (List<TipoSolicitud>) tipoSolicitudDao.findAll();
@@ -36,5 +36,5 @@ public class TipoSolicitudServiceImpl implements TipoSolicitudService{
     public TipoSolicitud encontrarTipoPorNombre(String nombre) {
         return tipoSolicitudDao.findByNombre(nombre);
     }
-    
+
 }

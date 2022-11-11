@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FormularioServiceImpl implements FormularioService{
+public class FormularioServiceImpl implements FormularioService {
 
     @Autowired
     private IFormularioDao formularioDao;
-    
+
     @Override
     public List<Formulario> listarFormularios() {
         return (List<Formulario>) formularioDao.findAll();
@@ -31,5 +31,5 @@ public class FormularioServiceImpl implements FormularioService{
     public Formulario encontrarFormulario(Formulario formulario) {
         return formularioDao.findById(formulario.getIdFormulario()).orElse(null);
     }
-    
+
 }

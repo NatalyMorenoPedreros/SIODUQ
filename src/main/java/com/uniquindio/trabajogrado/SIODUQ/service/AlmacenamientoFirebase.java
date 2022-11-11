@@ -128,6 +128,5 @@ public class AlmacenamientoFirebase {
 
         InputStream respuesta = new ReaderInputStream(lectorJson);
         return respuesta;
-
     }
 }

@@ -13,7 +13,7 @@
                     <div class="row"> 
                         <div class="col-md-3">
                             <button type="submit" class="btn btn-success btn-block">
-                                <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                                <i class="fas fa-check" id="botonGuardarFormulario"></i> [[#{accion.guardar}]]
                             </button>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.librotexto}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioLibroTexto/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="librotexto"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -47,7 +47,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.audiovisuales}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioAudioVisuales/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="audiovisuales"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -55,7 +55,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.libroensayo}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioLibroEnsayo/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="libroensayo"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -63,7 +63,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.premio}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioPremio/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="premio"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -71,7 +71,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.libroinvestigacion}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioLibroInvestigacion/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="libroinvestigacion"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                                 <label for="mensaje">[[#{titulo.bon.otrasrevistas}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioOtrasRevistas/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="otrasrevistas"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -89,7 +89,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.obrasartisticas}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioObraArtistica/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="obrasartisticas"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -97,7 +97,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.patente}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioPatente/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="patente"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -105,7 +105,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.producciontecnica}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioProduccionTecnica/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="producciontecnica"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -113,7 +113,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.software}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioSoftware/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="software"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -121,7 +121,7 @@
                                                 <label for="mensaje">[[#{titulo.pa.articulos}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioArticulos/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="articulos"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -153,7 +153,7 @@
                                                 <label for="mensaje">[[#{titulo.bon.articulosu}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioArticulosU/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="articulosu"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -161,7 +161,7 @@
                                                 <label for="mensaje">[[#{titulo.bon.direcciontesis}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioDireccionTesis/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="direcciontesis"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -171,7 +171,7 @@
                                                 <label for="mensaje">[[#{titulo.bon.posdoctoral}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioPosdoctoral/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="posdoctoral"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>
@@ -179,7 +179,7 @@
                                                 <label for="mensaje">[[#{titulo.bon.ponencia}]]</label>
                                                 <div class="col-md-5" sec:authorize="hasRole('ROLE_USER')">
                                                     <a th:href="@{/crearFormularioPonencia/} + ${persona.idPersona}" class="btn btn-primary btn-block">
-                                                        <i class="fas fa-plus"></i> [[#{accion.agregar}]]
+                                                        <i class="fas fa-plus" id="ponencia"></i> [[#{accion.agregar}]]
                                                     </a>
                                                 </div>
                                             </div>

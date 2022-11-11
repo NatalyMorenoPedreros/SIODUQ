@@ -16,21 +16,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @Slf4j
 public class ControladorNotificacion {
-    
+
     @Autowired
     private NotificacionService notificacionService;
-    
+
     @Autowired
     private SolicitudService solicitudService;
-    
+
     @PostMapping("/crearNotificacion/{idSolicitud}")
-    public String guardar(Solicitud solicitud, @Validated Notificacion notificacion, Errors errores){
-        
+    public String guardar(Solicitud solicitud, @Validated Notificacion notificacion, Errors errores) {
+
         solicitud = solicitudService.encontrarSolicitud(solicitud);
-        
+
         notificacion.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
         notificacion.setSolicitud(solicitud);
-        notificacionService.construirNotificacion(solicitud,Constantes.CORREO_CUERPO_CREACION_PROPIA + notificacion.getMensaje());
+        notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_CREACION_PROPIA + notificacion.getMensaje());
         return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
     }
 }
