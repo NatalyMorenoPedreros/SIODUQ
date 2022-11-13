@@ -2,8 +2,6 @@ package com.uniquindio.trabajogrado.SIODUQ.service;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,7 +41,7 @@ public class AlmacenamientoFirebaseTest {
      */
     @Test
     public void testCargarArchivo() throws Exception {
-        System.out.println("cargarArchivo");
+        System.out.println("Prueba de carga de archivo test.txt");
         File file = new File("src\\main\\resources\\test.txt");
         MultipartFile archivo = new MockMultipartFile("test.txt", "test.txt", "text/plain", new FileInputStream(file));
         AlmacenamientoFirebase instance = new AlmacenamientoFirebase();
@@ -51,8 +49,6 @@ public class AlmacenamientoFirebaseTest {
         String[] expResult = {"urlArchivo", "test.txt"};
         String[] result = instance.cargarArchivo(archivo, "prueba");
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
@@ -60,16 +56,14 @@ public class AlmacenamientoFirebaseTest {
      */
     @Test
     public void testDescargarArchivo() throws Exception {
-        System.out.println("descargarArchivo");
+        System.out.println("Descarga de archivo test.txt");
         String nombreArchivo = "test.txt";
         AlmacenamientoFirebase instance = new AlmacenamientoFirebase();
         instance.inicializarFirebase();
         ResponseEntity expResult = new ResponseEntity(HttpStatus.OK);
        
         ResponseEntity result = instance.descargarArchivo(nombreArchivo);
-        System.out.println(result.getBody());
         assertEquals(expResult.getStatusCode(), result.getStatusCode());
-        //fail("The test case is a prototype.");
     }
     
 }
