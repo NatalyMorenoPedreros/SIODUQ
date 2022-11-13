@@ -17,12 +17,12 @@ public class ValoracionFuenteExterna implements Serializable{
     private Integer idValoracion;
     
     @ManyToOne
-    @JoinColumn(name = "id_solicitud")
+    @JoinColumn(name = "solicitud")
     Solicitud solicitud;
     
-    @Column(name = "puntaje_tentativo")
+    @Column(name = "puntajetentativo")
     private String puntajeTentativo;
-    @Column(name = "nombre_evaluador")
+    @Column(name = "nombreevaluador")
     private String nombreEvaluador;
     @Column(name = "correo")
     private String correo;

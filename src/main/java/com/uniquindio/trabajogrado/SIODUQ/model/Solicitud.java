@@ -2,7 +2,6 @@ package com.uniquindio.trabajogrado.SIODUQ.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
 
