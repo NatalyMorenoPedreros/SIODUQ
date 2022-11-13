@@ -1281,23 +1281,33 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="fechafinal">[[#{formulario.articulo.tipodifusion}]] </label>
-                                            <select name="tipoDifusion" id="tipoDifusion" class="btn btn-primary">
+                                            <select name="tipoDifusion" id="tipoDifusion">
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}"></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.articulo.tiporevista}]] </label>
-                                            <select name="tipoRevista" id="tipoRevista" class="btn btn-primary">
+                                            <select name="tipoRevista" id="tipoRevista">
                                                 <option  th:each="tiporevista : ${tipoRevistas}" th:value="${tiporevista.idTipoRevista}" th:text="${tiporevista.nombre}"></option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Revista original<br>
+                                                2. Fotocopia del artículo<br>
+                                                3. Fotocopia de la portada<br>
+                                                4. Fotocopia de la contraportada<br>
+                                                5. Otros
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1340,13 +1350,20 @@
                                                 <option  th:each="tipotesis : ${tiposTesis}" th:value="${tipotesis.idTipoTesis}" th:text="${tipotesis.nombre}"></option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Certificación de la Dirección del Trabajo de Grado o de la Tesis<br>
+                                                2. Acta de disertación aprobada
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1389,13 +1406,40 @@
                                                 <option  th:each="tipoproduccion : ${tipoProducciones}" th:value="${tipoproduccion.idTipoProduccion}" th:text="${tipoproduccion.nombre}"></option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1.Código fuente con su respectiva documentación <br>  
+                                                2.Instalador del software  <br>
+                                                3. Documentación técnica que incluya:<br>
+
+                                                    Manual de instalación<br>                                                                                 
+                                                    Manual del usuario<br>
+                                                    Documento de diseño <br>
+                                                    Documento de evaluación y pruebas del software <br>      
+
+                                                    De igual forma, se debe anexar una (1) copia en físico de los siguientes documentos:<br>
+
+                                                4. Certificado de origen del desarrollo de software (Para los proyectos de Investigación,<br> 
+                                                extensión o gestión institucional, el certificado deberá indicar explícitamente que no <br>
+                                                obtuvo una remuneración por la creación del software). <br>            
+                                                    Proyecto de Investigación<br>                                                                      
+                                                    Proyecto de Extensión<br>
+                                                    Proyecto de Apoyo a la Gestión Institucional <br>   
+                                                    Proyecto de Actividad Docente <br>                                                            
+
+                                                5. Descripción en detalle del aporte al conocimiento o a la innovación<br>
+                                                6. Copia del Certificado de registro Soporte Lógico-Software, expedido por el Ministerio del Interior
+
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1434,13 +1478,19 @@
                                                 <option th:each="tipoproduccion : ${tipoProducciones}" th:value="${tipoproduccion.idTipoProduccion}" th:text="${tipoproduccion.nombre}"></option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Tres ejemplares de la descripción y procedimiento del producto del mismo
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1491,13 +1541,20 @@
                                                 <option  th:each="tipopatente : ${tipoPatentes}" th:value="${tipopatente.idTipoPatente}" th:text="${tipopatente.nombre}"></option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Tres (3)  Ejemplares del Producto<br>                                                                                             
+                                                2. Resolución expedida por la Superintendencia de Industria y Comercio   
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1586,13 +1643,24 @@
                                             <label for="entidad">[[#{formulario.obraartistica.fechacreacionguion}]] </label>
                                             <input type="text" class="form-control" name="fechaCreacionGuion" required="true"/>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Certificación de los organizadores del programa o evento, donde conste expresamente la participación, el tipo de participación, el carácter del evento, las fechas de realización, el número de presentaciones, el número de asistentes, etc.<br>
+                                                2. Certificación, expedida por la entidad responsable de la difusión, que exprese el título de la obra, el canal y programa que lo difundió, los días, horas e intensidad o duración de la emisión y el carácter nacional o internacional de la emisión.<br>
+                                                3. Anexar programas de mano con fechas, catálogos, memorias, invitaciones, afiches, anuncios de radio, TV o prensa, fotografías, etc., donde aparezcan los datos exigidos por el Decreto 1279 para la identificación y evaluación de la obra o exposición.<br>
+                                                4. Imágenes fijas o secuenciales, analógicas (fotografías, videos completos de las obras, etc.) o digitales (CD, DVD) donde aparezcan claramente identificadas las obras, los roles, los resultados o productos que se buscan evaluar.
+                                                5. Grabaciones sonoras y demás medios, claramente identificados.
+                                                6. Catálogo o texto impreso (original o copia) de la muestra artística, sea individual o colectiva.
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1661,13 +1729,29 @@
                                             <label for="entidad">[[#{formulario.libroinvestigacion.certificaprimervez}]] </label>
                                             <input type="text" class="form-control" name="certificadoPrimeraVez" required="true"/>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Seis ejemplares del libro<br>
+                                                2. Certificación del comité central de investigaciones<br>
+                                                3. Artículo publicado en revista indexada por Minciencias<br>
+                                                4. Ficha de registro del ISBN expedida por la Cámara colombiana del libro o su quivalente<br>
+                                                5. Registro de existencia y representación legal de la editorial<br>
+                                                6. Certificado de la editorial donde conste su registro ante la cámara colombiana del libro<br>
+                                                7. Certificado de depósito legal<br>
+                                                8. RUT de la editorial<br>
+                                                9. Certificación de la editorial donde conste para los libros impresos o electrónicos con tipo de soporte el número de ejemplares ofertados<br>
+                                                10. Dirección web del catálogo de la editorial<br>
+                                                11. Si fue de una universidad de alta calidad, adjuntar el MEN
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1733,13 +1817,27 @@
                                             <label for="entidad">[[#{formulario.librotexto.certificaprimervez}]] </label>
                                             <input type="text" class="form-control" name="certificadoPrimeraVez" required="true"/>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Seis ejemplares del libro<br>
+                                                2. Ficha de registro del ISBN expedida por la Cámara colombiana del libro o su quivalente<br>
+                                                3. Registro de existencia y representación legal de la editorial<br>
+                                                4. Certificado de la editorial donde conste su registro ante la cámara colombiana del libro<br>
+                                                5. Certificado de depósito legal<br>
+                                                6. RUT de la editorial<br>
+                                                7. Certificación de la editorial donde conste para los libros impresos o electrónicos con tipo de soporte el número de ejemplares ofertados<br>
+                                                8. Dirección web del catálogo de la editorial<br>
+                                                9. Si fue de una universidad de alta calidad, adjuntar el MEN    
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1788,13 +1886,27 @@
                                             <label for="entidad">[[#{formulario.libroensayo.certificaprimervez}]] </label>
                                             <input type="text" class="form-control" name="certificadoPrimeraVez" required="true"/>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Seis ejemplares del libro<br>
+                                                2. Ficha de registro del ISBN expedida por la Cámara colombiana del libro o su quivalente<br>
+                                                3. Registro de existencia y representación legal de la editorial<br>
+                                                4. Certificado de la editorial donde conste su registro ante la cámara colombiana del libro<br>
+                                                5. Certificado de depósito legal<br>
+                                                6. RUT de la editorial<br>
+                                                7. Certificación de la editorial donde conste para los libros impresos o electrónicos con tipo de soporte el número de ejemplares ofertados<br>
+                                                8. Dirección web del catálogo de la editorial<br>
+                                                9. Si fue de una universidad de alta calidad, adjuntar el MEN
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1865,13 +1977,19 @@
                                             <label for="entidad">[[#{formulario.audiovisual.guia}]] </label>
                                             <input type="text" class="form-control" name="guia" required="true"/>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Anexar prueba de nivel de difusión y constancia de la entidad que realizó la difusión
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1922,13 +2040,22 @@
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}"></option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br> 
+                                                1. Convocatoria pública nacional o internacional<br>
+                                                2. Procedimiento de selección claramente establecido<br>
+                                                3. Certificación del premio<br>
+                                                4. Producto que dió origen al premio
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -1979,13 +2106,22 @@
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}"></option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Original o fotocopia de la programación del evento<br>
+                                                2. Fotocopia de las memorias del evento especializado en las que aparezca publicada la ponencia o por lo menos el resumen<br>
+                                                3. Certificado del evento de la presentación de la ponencia<br>
+                                                4. La ponencia completa en caso de no estar publicada en las memorias del evento
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -2022,13 +2158,19 @@
                                             <label for="entidad">[[#{formulario.posdoctoral.entidad}]] </label>
                                             <input type="text" class="form-control" name="entidad" required="true"/>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1. Constancia de duración, terminación y nombre del trabajo realizado
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -2119,13 +2261,21 @@
                                             <label for="entidad">[[#{formulario.otrasrevistas.editorial}]] </label>
                                             <input type="text" class="form-control" name="editorial" required="true"/>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1.Fotocopia de la Portada <br>            
+                                                2.Fotocopia de la Contraportada<br>   
+                                                3.Fotocopia del Artículo  
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>
@@ -2158,13 +2308,21 @@
                                             <label for="fechafinal">[[#{formulario.articulou.aniopublicacion}]] </label>
                                             <input type="text" class="form-control" name="anioPublicacion" required="true"/>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="mensaje">
+                                                Documentos solicitados en el comprimido (zip,rar) <br>
+                                                1.Fotocopia de la Portada<br>               
+                                                2.Fotocopia de la Contraportada<br>    
+                                                3.Fotocopia del Artículo  
+                                            </label>
+                                        </div>
+                                        <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <section th:replace="layout/plantillaFormulario :: cargarArchivoComprimido"></section>
                 <section th:replace="layout/botonesFormulario :: botonGuardarFormulario" sec:authorize="hasRole('ROLE_USER')"></section>
             </form>
         </section>

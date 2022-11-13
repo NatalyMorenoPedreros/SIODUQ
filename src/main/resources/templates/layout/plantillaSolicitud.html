@@ -152,7 +152,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="table-danger" th:each="solicitud : ${solicitudes}">
+                                        <tr id="elementoEstadoSolicitud" th:each="solicitud : ${solicitudes}">
                                             <td>[[${solicitud.tipoSolicitud.nombre}]]</td>
                                             <td>[[${solicitud.codigo}]]</td>
                                             <td>[[${solicitud.fechaCreacion}]]</td>
@@ -160,7 +160,7 @@
                                             <td>[[${solicitud.persona.correo}]]</td>
                                             <td>[[${solicitud.persona.programa.nombre}]]</td>
                                             <td>[[${solicitud.puntajeTentativo}]]</td>
-                                            <td>[[${solicitud.estado.nombre}]]</td>
+                                            <td id="elementoEstadoSolicitud">[[${solicitud.estado.nombre}]]</td>
                                             <td>
                                                 <a th:href="@{/observarSolicitud/} + ${solicitud.idSolicitud}"
                                                    class="btn btn-secondary">
@@ -168,6 +168,36 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        <script type="text/javascript">
+                                            var container = document.querySelectorAll('td');
+                                            function change() {
+                                                for (var posicion in container) {
+                                                    var estado = container[posicion];
+                                                    if (estado.textContent === 'NUEVA') {
+                                                        estado.style.color = "#F1C40F";
+                                                    }
+                                                    if (estado.textContent === 'MODIFICADA USUARIO') {
+                                                        estado.style.color = "#3498DB";
+                                                    }
+                                                    if (estado.textContent === 'REVISION OFICINA') {
+                                                        estado.style.color = "#F39C12";
+                                                    }
+                                                    if (estado.textContent === 'ACEPTADA') {
+                                                        estado.style.color = "#77D628 ";
+                                                    }
+                                                    if (estado.textContent === 'DEVUELTA') {
+                                                        estado.style.color = "#E74C3C";
+                                                    }
+                                                    if (estado.textContent === 'PROCESO VALORACION') {
+                                                        estado.style.color = "#A569BD";
+                                                    }
+                                                    if (estado.textContent === 'FINALIZADA') {
+                                                        estado.style.color = "#2ECC71";
+                                                    }
+                                                }
+                                            }
+                                            change();
+                                        </script>
                                     </tbody>
                                 </table>
                             </div>
@@ -227,6 +257,25 @@
                         </td>
                     </tr>
                 </table>
+            </div>
+        </section>
+        <section th:fragment="verValoracion" th:object="${solicitud}">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{solicitud.obtener-valoracion}]]</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="nombre">Link: </label>
+                                    <span><a id="direccionValoracion" style="color:blue;" target="_blank"></a>[[#{solicitud.link-valoracion}]][[${solicitud.idSolicitud}]]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </body>

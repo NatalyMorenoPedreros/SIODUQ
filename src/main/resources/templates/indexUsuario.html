@@ -7,9 +7,11 @@
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"></header>
+        <div class="btn-group ml-5" role="group">
+            <section th:replace="layout/botonesSolicitud :: botonAgregarSolicitudPA"></section>
+            <section th:replace="layout/botonesSolicitud :: botonAgregarSolicitudBON"></section>
+        </div>
         <section th:replace="layout/plantillaSolicitud :: listadoSolicitudes"></section>
-        <section th:replace="layout/botonesSolicitud :: botonAgregarSolicitudPA"></section>
-        <section th:replace="layout/botonesSolicitud :: botonAgregarSolicitudBON"></section>
         <header th:replace="layout/botonesFormulario :: botonAgregarProductividadAcademica"></header>
         <header th:replace="layout/botonesFormulario :: botonAgregarBonificacion"></header>
         <footer th:replace="layout/plantilla :: footer"></footer>
