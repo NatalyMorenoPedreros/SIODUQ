@@ -744,7 +744,7 @@ public class ControladorFormulario {
         persona = personaService.encontrarPersona(persona);
 
         formularioService.guardar(formulario);
-
+        
         formularioEspecifico.setIdFormulario(formulario.getIdFormulario());
         formularioLibroInvestigacionService.guardar(formularioEspecifico);
 

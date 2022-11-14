@@ -24,7 +24,7 @@ public class FORMPALibroInvestigacion implements Serializable{
     @Column(name = "numeroedicion")
     private String numeroEdicion;
     @Column(name = "numeroejemplares")
-    private String numeroEjemplares;
+    private Integer numeroEjemplares;
     @Column(name = "areaconocimiento")
     private String areaConocimiento;
     @Column(name = "editorial")

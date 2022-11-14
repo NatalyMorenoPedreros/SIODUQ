@@ -241,8 +241,8 @@
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.articulo.tiporevista}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoRevista.nombre}]]</label>
-                                            <select  th:field="*{tipoRevista}" name="tipoRevista" id="tipoRevista">
-                                                <option  th:each="tiporevista : ${tipoRevistas}" th:value="${tiporevista.idTipoRevista}" th:text="${tiporevista.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
+                                            <select  th:field="*{tipoRevista}" name="tipoRevista" id="tipoRevista" sec:authorize="hasRole('ROLE_USER')">
+                                                <option  th:each="tiporevista : ${tipoRevistas}" th:value="${tiporevista.idTipoRevista}" th:text="${tiporevista.nombre}" ></option>
                                             </select>
                                         </div>
                                     </div>
@@ -346,21 +346,21 @@
                                         <div class="form-group">
                                             <label for="fechafinal">[[#{formulario.audiovisual.tipomaterial}]] </label>
                                             <label for="valorfechafinal">[[${formularioEspecifico.tipoMaterial.nombre}]]</label>
-                                            <select  th:field="*{tipoMaterial}" name="tipoMaterial" id="tipoMaterial">
+                                            <select  th:field="*{tipoMaterial}" name="tipoMaterial" id="tipoMaterial" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipomaterial : ${tipoMateriales}" th:value="${tipomaterial.idTipoMaterial}" th:text="${tipomaterial.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.audiovisual.tipodifusion}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoDifusion.nombre}]]</label>
-                                            <select  th:field="*{tipoDifusion}" name="tipoDifusion" id="tipoDifusion">
+                                            <select  th:field="*{tipoDifusion}" name="tipoDifusion" id="tipoDifusion" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="fechafinal">[[#{formulario.audiovisual.tipoaporte}]] </label>
                                             <label for="valorfechafinal">[[${formularioEspecifico.tipoAporte.nombre}]]</label>
-                                            <select  th:field="*{tipoAporte}" name="tipoAporte" id="tipoAporte">
+                                            <select  th:field="*{tipoAporte}" name="tipoAporte" id="tipoAporte" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipoaporte : ${tipoAportes}" th:value="${tipoaporte.idTipoAporte}" th:text="${tipoaporte.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -416,7 +416,7 @@
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.direcciontesis.tipotesis}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoTesis.nombre}]]</label>
-                                            <select  th:field="*{tipoTesis}" name="tipoTesis" id="tipoTesis">
+                                            <select  th:field="*{tipoTesis}" name="tipoTesis" id="tipoTesis" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipotesis : ${tiposTesis}" th:value="${tipotesis.idTipoTesis}" th:text="${tipotesis.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -670,7 +670,7 @@
                                         <div class="form-group">
                                             <label for="titulotrabajo">[[#{formulario.obraartistica.tituloreconocimiento}]] </label>
                                             <label for="valortitulotrabajo">[[${formularioEspecifico.tipoReconocimiento.nombre}]]</label>
-                                            <select  th:field="*{tipoReconocimiento}" name="tipoReconocimiento" id="tipoReconocimiento">
+                                            <select  th:field="*{tipoReconocimiento}" name="tipoReconocimiento" id="tipoReconocimiento" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tiporeconocimiento : ${tipoReconocimientos}" th:value="${tiporeconocimiento.idTipoReconocimiento}" th:text="${tiporeconocimiento.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -742,7 +742,7 @@
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.obraartistica.tipoobra}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoObra.nombre}]]</label>
-                                            <select  th:field="*{tipoObra}" name="tipoObra" id="tipoObra">
+                                            <select  th:field="*{tipoObra}" name="tipoObra" id="tipoObra" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipoobra : ${tipoObras}" th:value="${tipoobra.idTipoObra}" th:text="${tipoobra.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -823,21 +823,21 @@
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.otrasrevistas.tipodifusion}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoDifusion.nombre}]]</label>
-                                            <select  th:field="*{tipoDifusion}" name="tipoDifusion" id="tipoDifusion">
+                                            <select  th:field="*{tipoDifusion}" name="tipoDifusion" id="tipoDifusion" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="fechafinal">[[#{formulario.otrasrevistas.tipopublicacion}]] </label>
                                             <label for="valorfechafinal">[[${formularioEspecifico.tipoPublicacion.nombre}]]</label>
-                                            <select  th:field="*{tipoPublicacion}" name="tipoPublicacion" id="tipoPublicacion">
+                                            <select  th:field="*{tipoPublicacion}" name="tipoPublicacion" id="tipoPublicacion" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipopublicacion : ${tipoPublicaciones}" th:value="${tipopublicacion.idTipoPublicacion}" th:text="${tipopublicacion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.otrasrevistas.tiporevista}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoRevista.nombre}]]</label>
-                                            <select  th:field="*{tipoRevista}" name="tipoRevista" id="tipoRevista">
+                                            <select  th:field="*{tipoRevista}" name="tipoRevista" id="tipoRevista" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tiporevista : ${tipoRevistas}" th:value="${tiporevista.idTipoRevista}" th:text="${tiporevista.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -918,7 +918,7 @@
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.patente.tipopatente}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoPatente.nombre}]]</label>
-                                            <select  th:field="*{tipoPatente}" name="tipoPatente" id="tipoPatente">
+                                            <select  th:field="*{tipoPatente}" name="tipoPatente" id="tipoPatente" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipopatente : ${tipoPatentes}" th:value="${tipopatente.idTipoPatente}" th:text="${tipopatente.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -979,7 +979,7 @@
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.ponencia.tipodifusion}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoDifusion.nombre}]]</label>
-                                            <select  th:field="*{tipoDifusion}" name="tipoDifusion" id="tipoDifusion">
+                                            <select  th:field="*{tipoDifusion}" name="tipoDifusion" id="tipoDifusion" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -1025,7 +1025,7 @@
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.producciontecnica.tipoproduccion}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoProduccion.nombre}]]</label>
-                                            <select  th:field="*{tipoProduccion}" name="tipoProduccion" id="tipoProduccion">
+                                            <select  th:field="*{tipoProduccion}" name="tipoProduccion" id="tipoProduccion" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipoproduccion : ${tipoProducciones}" th:value="${tipoproduccion.idTipoProduccion}" th:text="${tipoproduccion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -1076,7 +1076,7 @@
                                         <div class="form-group">
                                             <label for="entidad">[[#{formulario.software.tipoproduccion}]] </label>
                                             <label for="valorentidad">[[${formularioEspecifico.tipoProduccion.nombre}]]</label>
-                                            <select  th:field="*{tipoProduccion}" name="tipoProduccion" id="tipoProduccion">
+                                            <select  th:field="*{tipoProduccion}" name="tipoProduccion" id="tipoProduccion" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipoproduccion : ${tipoProducciones}" th:value="${tipoproduccion.idTipoProduccion}" th:text="${tipoproduccion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
@@ -1137,7 +1137,7 @@
                                         <div class="form-group">
                                             <label for="fechafinal">[[#{formulario.premio.difusion}]] </label>
                                             <label for="valorfechafinal">[[${formularioEspecifico.tipoDifusion.nombre}]]</label>
-                                            <select  th:field="*{tipoDifusion}" name="tipoDifusion" id="tipoDifusion">
+                                            <select  th:field="*{tipoDifusion}" name="tipoDifusion" id="tipoDifusion" sec:authorize="hasRole('ROLE_USER')">
                                                 <option  th:each="tipodifusion : ${tipoDifusiones}" th:value="${tipodifusion.idTipoDifusion}" th:text="${tipodifusion.nombre}" sec:authorize="hasRole('ROLE_USER')"></option>
                                             </select>
                                         </div>
