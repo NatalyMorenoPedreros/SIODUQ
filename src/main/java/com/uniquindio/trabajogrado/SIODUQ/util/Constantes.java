@@ -18,7 +18,7 @@ public class Constantes {
     static public final String FPASOFT = "VIGAGH04F63";
     static public final String FPAPREMIO = "VIGAGH04F53";
 
-    static public final String FBARTICULORUTA = "gestionarFormularioArticuloU";
+    static public final String FBARTICULORUTA = "gestionarFormularioArticulosU";
     static public final String FBDIRECCIONTRUTA = "gestionarFormularioDireccionTesis";
     static public final String FBESTUDIOPOSRUTA = "gestionarFormularioEstudioPosdoctoral";
     static public final String FBOTRAREVISRUTA = "gestionarFormularioOtrasRevistas";
