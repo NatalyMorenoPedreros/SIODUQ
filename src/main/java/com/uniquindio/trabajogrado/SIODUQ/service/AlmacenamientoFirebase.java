@@ -1,15 +1,12 @@
 package com.uniquindio.trabajogrado.SIODUQ.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.api.client.util.IOUtils;
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.ReadChannel;
 import com.google.cloud.storage.Blob;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
-import com.google.common.net.HttpHeaders;
 import com.uniquindio.trabajogrado.SIODUQ.logica.CredencialesFirebase;
 import com.uniquindio.trabajogrado.SIODUQ.util.Constantes;
 import java.io.File;
@@ -19,8 +16,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
-import java.nio.channels.Channels;
 import java.nio.file.Paths;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -28,7 +25,6 @@ import java.util.Properties;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.engine.jdbc.ReaderInputStream;
-import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -63,7 +59,7 @@ public class AlmacenamientoFirebase {
     }
 
     private String generarNombreArchivo(MultipartFile archivo, String identificacionUsuario) {
-        return Objects.requireNonNull(identificacionUsuario + archivo.getOriginalFilename()).replace(" ", "_");
+        return new Date().getTime() + Objects.requireNonNull(identificacionUsuario + archivo.getOriginalFilename()).replace(" ", "_");
     }
 
     public String[] cargarArchivo(MultipartFile archivo, String identificacionUsuario) throws IOException {
