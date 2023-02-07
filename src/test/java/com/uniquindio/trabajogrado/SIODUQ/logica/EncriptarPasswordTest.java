@@ -37,7 +37,7 @@ public class EncriptarPasswordTest {
     public void testEncriptarPassword() {
         System.out.println("Prueba de encriptacion de una contrasena");
         String password = "12345";
-        String result = EncriptarPassword.encriptarPassword(password);
+        String result = EncriptarContrasena.encriptarPassword(password);
         assertTrue(!result.equals(password));
     }
     

@@ -1,4 +1,4 @@
-package com.uniquindio.trabajogrado.SIODUQ.controlador;
+package com.uniquindio.trabajogrado.SIODUQ.seguridad;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;

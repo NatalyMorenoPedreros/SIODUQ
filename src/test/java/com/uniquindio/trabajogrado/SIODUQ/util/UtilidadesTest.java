@@ -1,4 +1,4 @@
-package com.uniquindio.trabajogrado.SIODUQ.utilidades;
+package com.uniquindio.trabajogrado.SIODUQ.util;
 
 import com.uniquindio.trabajogrado.SIODUQ.utilidades.Utilidades;
 import org.junit.jupiter.api.AfterEach;

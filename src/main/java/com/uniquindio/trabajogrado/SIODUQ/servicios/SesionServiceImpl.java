@@ -5,7 +5,7 @@ import com.uniquindio.trabajogrado.SIODUQ.modelo.Persona;
 import com.uniquindio.trabajogrado.SIODUQ.modelo.Rol;
 import com.uniquindio.trabajogrado.SIODUQ.modelo.Sesion;
 import com.uniquindio.trabajogrado.SIODUQ.utilidades.Constantes;
-import com.uniquindio.trabajogrado.SIODUQ.logica.EncriptarPassword;
+import com.uniquindio.trabajogrado.SIODUQ.logica.EncriptarContrasena;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +42,7 @@ public class SesionServiceImpl implements SesionService {
 
             sesion.setPersona(persona);
             sesion.setUsername(persona.getIdentificacion());
-            sesion.setPassword(EncriptarPassword.encriptarPassword(sesion.getPassword()));
+            sesion.setPassword(EncriptarContrasena.encriptarPassword(sesion.getPassword()));
             sesion.setRol(rolEncontrado);
 
             guardar(sesion);
