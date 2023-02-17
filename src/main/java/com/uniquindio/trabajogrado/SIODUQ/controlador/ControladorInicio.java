@@ -4,9 +4,8 @@ import com.uniquindio.trabajogrado.SIODUQ.modelo.Persona;
 import com.uniquindio.trabajogrado.SIODUQ.modelo.Programa;
 import com.uniquindio.trabajogrado.SIODUQ.modelo.Sesion;
 import com.uniquindio.trabajogrado.SIODUQ.modelo.TipoIdentificacion;
-import com.uniquindio.trabajogrado.SIODUQ.servicios.PersonaService;
+import com.uniquindio.trabajogrado.SIODUQ.seguridad.AutenticacionUsuario;
 import com.uniquindio.trabajogrado.SIODUQ.servicios.ProgramaService;
-import com.uniquindio.trabajogrado.SIODUQ.servicios.RolService;
 import com.uniquindio.trabajogrado.SIODUQ.servicios.SesionService;
 import com.uniquindio.trabajogrado.SIODUQ.servicios.SolicitudService;
 import com.uniquindio.trabajogrado.SIODUQ.servicios.TipoIdentificacionService;
@@ -14,6 +13,7 @@ import com.uniquindio.trabajogrado.SIODUQ.utilidades.Constantes;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -39,35 +39,38 @@ public class ControladorInicio {
     @Autowired
     private ProgramaService programaService;
 
-    @Autowired
-    private PersonaService personaService;
-
-    @Autowired
-    private RolService rolService;
-
     @GetMapping("/")
-    public String inicio(Model model, @AuthenticationPrincipal User user) {
-        log.info("El acceso fue con el usuario " + user);
-
-        var roles = user.getAuthorities().toArray();
-
-        String rol = roles[0].toString();
-
-        Sesion sesion = sesionService.buscarPorUsername(user.getUsername());
-
-        switch (rol) {
-            case Constantes.ROLE_ADMIN:
-                var solicitudes = solicitudService.listarSolicitudes();
-                model.addAttribute("solicitudes", solicitudes);
-                return "index";
-            case Constantes.ROLE_USER:
-                var solicitudesPersona = solicitudService.buscarSolicitudesPorPersona(sesion.getPersona());
-                model.addAttribute("persona", sesion.getPersona());
-                model.addAttribute("solicitudes", solicitudesPersona);
-                return "indexUsuario";
-            default:
-                throw new AssertionError();
+    public String inicio(Model model, @AuthenticationPrincipal User user1, Authentication authentication) {
+        
+        Sesion sesion = new Sesion();
+        String rol = "";
+        
+        if(user1 != null){
+            var roles = user1.getAuthorities().toArray();
+            rol = roles[0].toString();
+            sesion = sesionService.buscarPorUsername(user1.getUsername());
+        }else if(authentication != null){
+            AutenticacionUsuario user = (AutenticacionUsuario) authentication.getPrincipal();
+            sesion = sesionService.buscarPorUsername(user.getEmail());
+            rol = user.getRole();
         }
+        
+        if (sesion != null) {
+            switch (rol) {
+                case Constantes.ROLE_ADMIN:
+                    var solicitudes = solicitudService.listarSolicitudes();
+                    model.addAttribute("solicitudes", solicitudes);
+                    return "index";
+                case Constantes.ROLE_USER:
+                    var solicitudesPersona = solicitudService.buscarSolicitudesPorPersona(sesion.getPersona());
+                    model.addAttribute("persona", sesion.getPersona());
+                    model.addAttribute("solicitudes", solicitudesPersona);
+                    return "indexUsuario";
+                default:
+                    throw new AssertionError();
+            }
+        }else
+            return "/errores/404";
     }
 
     @GetMapping("/cargarInformacionSesion")
