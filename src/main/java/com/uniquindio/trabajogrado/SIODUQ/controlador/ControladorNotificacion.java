@@ -27,10 +27,17 @@ public class ControladorNotificacion {
     public String guardar(Solicitud solicitud, @Validated Notificacion notificacion, Errors errores) {
 
         solicitud = solicitudService.encontrarSolicitud(solicitud);
+        
+        if(solicitud != null){
+            notificacion.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
+            notificacion.setSolicitud(solicitud);
 
-        notificacion.setFechaCreacion(new Timestamp(System.currentTimeMillis()));
-        notificacion.setSolicitud(solicitud);
-        notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_CREACION_PROPIA + notificacion.getMensaje());
-        return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
+            if (notificacionService.construirNotificacion(solicitud, Constantes.CORREO_CUERPO_CREACION_PROPIA + notificacion.getMensaje())){
+                return "redirect:/observarSolicitud/" + solicitud.getIdSolicitud();
+            } else
+                return "redirect:/errores/errorCreacionNotificacion";
+        } else
+            return "redirect:/errores/errorObtenerInformacion";
+        
     }
 }

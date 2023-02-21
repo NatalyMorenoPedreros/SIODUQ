@@ -1,6 +1,5 @@
 package com.uniquindio.trabajogrado.SIODUQ.servicios;
 
-import com.uniquindio.trabajogrado.SIODUQ.servicios.AlmacenamientoFirebase;
 import java.io.File;
 import java.io.FileInputStream;
 import org.junit.jupiter.api.AfterEach;
@@ -10,8 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -52,19 +49,4 @@ public class AlmacenamientoFirebaseTest {
         assertArrayEquals(expResult, result);
     }
 
-    /**
-     * Test of descargarArchivo method, of class AlmacenamientoFirebase.
-     */
-    @Test
-    public void testDescargarArchivo() throws Exception {
-        System.out.println("Descarga de archivo test.txt");
-        String nombreArchivo = "test.txt";
-        AlmacenamientoFirebase instance = new AlmacenamientoFirebase();
-        instance.inicializarFirebase();
-        ResponseEntity expResult = new ResponseEntity(HttpStatus.OK);
-       
-        ResponseEntity result = instance.descargarArchivo(nombreArchivo);
-        assertEquals(expResult.getStatusCode(), result.getStatusCode());
-    }
-    
 }

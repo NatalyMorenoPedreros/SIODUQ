@@ -7,9 +7,10 @@
     </head>
     <body>
         <div>No se pudo generar su registro. 
-            La identificación escrita se encuentra almacenada en el sistema.
-            No se puede volver a registrar una sesión con la misma identificación
-            <a th:href="@{/}" >[[#{accion.regresar}]]</a>
+            La identificación y/o correo escrita se encuentra almacenada en el sistema.
+            El correo debe tener el dominio de la Universidad del Quindío.
+            No se puede volver a registrar una sesión con esa misma información.
+            <a th:href="@{/login}" >[[#{accion.regresar}]]</a>
         </div>
     </body>
 </html>

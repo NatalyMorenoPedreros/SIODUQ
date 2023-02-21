@@ -42,14 +42,16 @@ public class ControladorInicio {
     @GetMapping("/")
     public String inicio(Model model, @AuthenticationPrincipal User user1, Authentication authentication) {
         
-        Sesion sesion = new Sesion();
+        Sesion sesion = null;
         String rol = "";
         
         if(user1 != null){
+            System.out.println("com.uniquindio.trabajogrado.SIODUQ.controlador.ControladorInicio.inicio(): Entro user 1");
             var roles = user1.getAuthorities().toArray();
             rol = roles[0].toString();
             sesion = sesionService.buscarPorUsername(user1.getUsername());
         }else if(authentication != null){
+            System.out.println("com.uniquindio.trabajogrado.SIODUQ.controlador.ControladorInicio.inicio(): Entro user 2");
             AutenticacionUsuario user = (AutenticacionUsuario) authentication.getPrincipal();
             sesion = sesionService.buscarPorUsername(user.getEmail());
             rol = user.getRole();
@@ -70,9 +72,9 @@ public class ControladorInicio {
                     throw new AssertionError();
             }
         }else
-            return "/errores/404";
+            return "/errores/errorInicioSesion";
     }
-
+    
     @GetMapping("/cargarInformacionSesion")
     public String cargarInformacionSesion(Model model) {
         List<TipoIdentificacion> tipoIdentificaciones = tipoIdentificacionService.listarTipoIdentificaciones();

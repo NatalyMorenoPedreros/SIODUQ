@@ -69,7 +69,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.uniquindio.trabajogrado.SIODUQ.servicios.FORMPAOtrasRevistasService;
 import com.uniquindio.trabajogrado.SIODUQ.servicios.FORMPAPremioService;
 import com.uniquindio.trabajogrado.SIODUQ.servicios.NotificacionService;
-import java.io.File;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -147,7 +146,7 @@ public class ControladorFormulario {
         Solicitud solicitud = solicitudService.buscarSolicitudPorFormulario(formulario);
         model.addAttribute("solicitud", solicitud);
 
-        String ruta = "redirect:/";
+        String ruta = "redirect:/errores/404";
 
         List<TipoDifusion> tipoDifusiones;
         List<TipoPublicacion> tipoPublicaciones;

@@ -38,6 +38,11 @@ public class ConfiguracionWeb implements WebMvcConfigurer {
         registro.addViewController("/agregarNotificacion");
         registro.addViewController("/login");
         registro.addViewController("/errores/403").setViewName("/errores/403");
+        registro.addViewController("/errores/404").setViewName("/errores/404");
         registro.addViewController("/errores/errorCreacion").setViewName("/errores/errorCreacion");
+        registro.addViewController("/errores/errorCreacionNotificacion").setViewName("/errores/errorCreacionNotificacion");
+        registro.addViewController("/errores/errorInicioSesion").setViewName("/errores/errorInicioSesion");
+        registro.addViewController("/errores/errorObtenerInformacion").setViewName("/errores/errorObtenerInformacion");
+        registro.addViewController("/errores/errorProceso").setViewName("/errores/errorProceso");
     }
 }

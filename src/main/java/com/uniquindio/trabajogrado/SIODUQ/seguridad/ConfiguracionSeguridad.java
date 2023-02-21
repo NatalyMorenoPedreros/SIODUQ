@@ -20,9 +20,6 @@ public class ConfiguracionSeguridad {
     @Autowired
     private AutenticacionUsuarioServicio autenticacionUsuarioServicio;
     
-    @Autowired
-    private AutenticacionUsuarioControlador autenticacionUsuarioControlador;
-
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -55,7 +52,6 @@ public class ConfiguracionSeguridad {
                     .userInfoEndpoint()
                     .userService(autenticacionUsuarioServicio)
                     .and()
-                    .successHandler(autenticacionUsuarioControlador)
                 .and()
                 .exceptionHandling().accessDeniedPage("/errores/403");
         

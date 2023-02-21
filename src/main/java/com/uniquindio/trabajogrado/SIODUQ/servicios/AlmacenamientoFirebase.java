@@ -2,7 +2,6 @@ package com.uniquindio.trabajogrado.SIODUQ.servicios;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.storage.Blob;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
@@ -16,7 +15,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
-import java.nio.file.Paths;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,8 +23,6 @@ import java.util.Properties;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.engine.jdbc.ReaderInputStream;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -81,19 +77,6 @@ public class AlmacenamientoFirebase {
         log.info("Archivo " + archivoCargar.toPath() + " se cargo al bucket " + nombreCanal + " como " + nombreArchivo);
 
         return new String[]{url, nombreArchivo};
-    }
-
-    public ResponseEntity descargarArchivo(String nombreArchivo) throws IOException {
-        inicializarFirebase();
-        Storage almacenamiento = opcionesAlmacenamiento.getService();
-        String carpetaDescarga = "C:\\Users\\natal\\Descargas\\";
-
-        Blob blob = almacenamiento.get(BlobId.of(nombreCanal, nombreArchivo));
-        blob.downloadTo(Paths.get(carpetaDescarga));
-
-        log.info("Descarga del archivo EXITOSA");
-
-        return new ResponseEntity(HttpStatus.OK);
     }
 
     private InputStream crearCredencialesFirebase() throws FileNotFoundException, IOException {

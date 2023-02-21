@@ -6,10 +6,9 @@
         <meta charset="UTF-8"/>
     </head>
     <body>
-        <div>No se pudo iniciar sesión. 
-            El correo no se encuentra registrado en el sistema.
-            Por favor, crear su registro e intente nuevamente inciar sesión.
-            <a th:href="@{/login}" >[[#{accion.regresar}]]</a>
+        <div>Se produjo un error con el servicio. 
+            No se encuentra la información solicitada, por favor, intentelo más tarde.
+            <a th:href="@{/}" >[[#{accion.regresar}]]</a>
         </div>
     </body>
 </html>

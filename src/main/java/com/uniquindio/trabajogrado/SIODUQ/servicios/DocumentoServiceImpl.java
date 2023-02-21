@@ -25,12 +25,20 @@ public class DocumentoServiceImpl implements DocumentoService {
 
     @Override
     public void guardar(Documento documento) {
-        documentoDao.save(documento);
+        try {
+            documentoDao.save(documento);
+        } catch (NullPointerException e) {
+            log.error("Ocurre un error con el objeto, se encuentra nulo: " + e.getMessage());
+        }
     }
 
     @Override
     public void eliminar(Documento documento) {
-        documentoDao.delete(documento);
+        try {
+            documentoDao.delete(documento);
+        } catch (NullPointerException e) {
+            log.error("Ocurre un error con el objeto, se encuentra nulo: " + e.getMessage());
+        }
     }
 
     @Override
@@ -54,8 +62,7 @@ public class DocumentoServiceImpl implements DocumentoService {
             guardar(documento);
 
         } catch (IOException ex) {
-            log.error("Sucede un error con la carga del documento");
-            log.error(ex.getMessage());
+            log.error("Sucede un error con la carga del documento: " + ex.getMessage());
         }
     }
 
@@ -78,8 +85,7 @@ public class DocumentoServiceImpl implements DocumentoService {
             guardar(documento);
 
         } catch (IOException ex) {
-            log.error("Sucede un error con la actualizacion del documento");
-            log.error(ex.getMessage());
+            log.error("Sucede un error con la actualizacion del documento: " + ex.getMessage());
         }
     }
 }

@@ -54,4 +54,13 @@ public class Utilidades {
         numeroSolicitudes++;
         return (tipoSolicitud.equals(Constantes.PRODUCTIVIDAD_ACADEMICA)) ? Constantes.PREFIJO_PA + numeroSolicitudes : Constantes.PREFIJO_BON + numeroSolicitudes;
     }
+    
+    public static boolean revisarDominioCorreo(String correo){
+        
+        int posicionArroba = correo.indexOf("@");
+        String dominio = correo.substring(posicionArroba);
+        System.out.println("Dominio " + dominio);
+        
+        return dominio.equals(Constantes.DOMINIO_CORREO);
+    }
 }

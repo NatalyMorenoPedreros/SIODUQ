@@ -96,4 +96,7 @@ public class Constantes {
     static public final String URL_FIREBASE_DESCARGA = "https://firebasestorage.googleapis.com/v0/b/";
     static public final String URL_FIREBASE_DESCARGA_2 = "/o/";
     static public final String URL_FIREBASE_DESCARGA_3 = "?alt=media&token=";
+    
+    static public final String DOMINIO_CORREO = "@uqvirtual.edu.co";
+    
 }

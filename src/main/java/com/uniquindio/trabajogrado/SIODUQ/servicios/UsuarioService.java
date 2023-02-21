@@ -27,6 +27,7 @@ public class UsuarioService implements UserDetailsService {
         Sesion sesion = sesionDao.findByUsername(username);
 
         if (sesion == null) {
+            log.error("No se encuentra el usuario");
             throw new UsernameNotFoundException(username);
         }
 

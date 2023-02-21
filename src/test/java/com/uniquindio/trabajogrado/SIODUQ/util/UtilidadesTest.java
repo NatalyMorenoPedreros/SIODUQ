@@ -80,4 +80,12 @@ public class UtilidadesTest {
         assertEquals(expResult, result);
     }
 
+    @Test
+    public void testVerificarDominio(){
+        System.out.println("Realizar comparacion del dominio del correo");
+        String correo = "nmorenop@uqvirtual.edu.co";
+        boolean result = Utilidades.revisarDominioCorreo(correo);
+        boolean epxResult = true;
+        assertEquals(epxResult, result);
+    }
 }

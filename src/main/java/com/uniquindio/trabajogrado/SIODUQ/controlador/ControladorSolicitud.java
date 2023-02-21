@@ -40,24 +40,27 @@ public class ControladorSolicitud {
     @GetMapping("/observarSolicitud/{idSolicitud}")
     public String listar(Solicitud solicitud, Model model) {
         solicitud = solicitudService.encontrarSolicitud(solicitud);
-        model.addAttribute("solicitud", solicitud);
-
-        Documento documento = documentoService.obtenerDocumentoPorSolicitud(solicitud);
-        model.addAttribute("documento", documento);
-
         List<Notificacion> notificaciones = notificacionService.listarPorSolicitud(solicitud);
-        model.addAttribute("notificaciones", notificaciones);
-
         List<Estado> estados = estadoService.listarEstados();
-        model.addAttribute("estados", estados);
+        Documento documento = documentoService.obtenerDocumentoPorSolicitud(solicitud);
+        
+        if (solicitud != null && notificaciones != null && estados != null && documento != null) {
+            model.addAttribute("documento", documento);
+            model.addAttribute("solicitud", solicitud);
+            model.addAttribute("notificaciones", notificaciones);
+            model.addAttribute("estados", estados);
 
-        return "gestionarSolicitud";
+            return "gestionarSolicitud";
+        }
+        
+        return "redirect:/errores/errorObtenerInformacion";
+        
     }
 
     @PostMapping("/guardarSolicitud")
     public String guardar(@Validated Solicitud solicitud, Errors errores) {
         if (errores.hasErrors()) {
-            return "redirect:/";
+            return "redirect:/errores/errorProceso";
         }
         solicitudService.guardar(solicitud, Constantes.CORREO_CUERPO_MODIFICACION);
 
@@ -67,7 +70,7 @@ public class ControladorSolicitud {
     @PostMapping("/actualizarDocumento/{idDocumento}")
     public String actualizarDocumento(Documento documento, @RequestParam("file") MultipartFile archivo, Errors errores) {
         if (errores.hasErrors()) {
-            return "redirect:/";
+            return "redirect:/errores/errorProceso";
         }
         documentoService.actualizarDocumento(archivo, documento);
 
